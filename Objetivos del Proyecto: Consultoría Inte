@@ -1,0 +1,61 @@
+Objetivos del Proyecto: Consultoría Integral de Pensiones (IMSS e ISSSTE)
+El propósito de este proyecto es el desarrollo de una solución profesional para el análisis situacional y asesoría técnica de personas próximas a pensionarse en México, bajo los regímenes de la Ley del Seguro Social (IMSS) y la Ley del ISSSTE. Se busca establecer un servicio de consultoría de alto nivel que permita monetizar el conocimiento especializado a través de los siguientes objetivos estructurales:
+Investigación y Síntesis Normativa: Elaborar un compendio pedagógico y actualizado que detalle las condiciones de acceso, semanas cotizadas y criterios de elegibilidad para la Ley 73 y el modelo de Afores, incluyendo las especificaciones técnicas de la Modalidad 40 y la Modalidad 10. y otras diferentes MODALIDADES que podemos encontrar en el análisis de ambas leyes. 
+Análisis de Portabilidad: Definir los protocolos legales para la unificación de cuentas individuales y transferencia de derechos entre el IMSS e ISSSTE, optimizando el cálculo de semanas para perfiles con trayectorias laborales mixtas.
+Benchmarking Competitivo: Realizar un análisis comparativo de las mejores prácticas y servicios ofrecidos por firmas líderes en plataformas digitales como Pension Perfecta, para refinar la propuesta de valor del servicio.
+Optimización Tecnológica: Evolucionar el prototipo de cálculo actual, disponible en GitHub, hacia una herramienta analítica robusta, potente y multivariable que incorpore todos los supuestos de combinación de factores identificados en la ley vigente.
+
+
+Como componente estratégico de la consultoría integral en materia de seguridad social, se busca proveer una asesoría técnica especializada que faculte a los derechohabientes del IMSS e ISSSTE para proyectar sus esquemas de aportación y ahorro para el retiro. El objetivo primordial radica en la integración sinérgica de estas prerrogativas legales con instrumentos financieros complementarios pertenecientes al sector asegurador, optimizando así la estrategia de jubilación mediante un análisis situacional de alto nivel.
+
+
+te DOY INFORMACIÓN DE CONTEXTO: 
+
+El sistema de pensiones en México se estructura principalmente en dos regímenes (Ley 1973 y Ley 1997) gestionados por el IMSS o ISSSTE. Se basa en cuentas individuales administradas por Afores, con pensiones de cesantía (60 años) o vejez (65 años). Las reformas recientes redujeron las semanas cotizadas necesarias (750 en 2021, aumentando a 1,000 para 2031). [1, 2, 3, 4]
+Regímenes de Pensión (IMSS)
+Régimen 1973: Para quienes comenzaron a cotizar antes del 1 de julio de 1997. Requiere 500 semanas cotizadas.
+Régimen 1997: Para quienes empezaron a cotizar a partir del 1 de julio de 1997. La pensión depende del ahorro individual en la Afore. [1, 2, 3, 4]
+Puntos Clave del Sistema Actual
+Administradoras de Fondos para el Retiro (Afore): Instituciones financieras que administran el ahorro obligatorio.
+Aseguradoras de Pensiones: Existen cuatro principales (Pensiones BBVA Bancomer, Pensiones Banorte, Pensiones Sura, Profuturo GNP).
+Reforma 2021: Disminuyó el requisito de semanas cotizadas de 1,250 a 750 (2021), aumentando 25 semanas cada año hasta llegar a 1,000 en 2031.
+Modalidades de aseguramiento: Modalidad 10 (trabajadores urbanos), 13 (campo), entre otras para la continuidad de derechos. [1, 2, 3, 4, 5]
+Seguros del IMSS
+El sistema cubre riesgos de trabajo, enfermedades y maternidad, invalidez y vida, guarderías, y retiro/vejez. [1]
+Pilares del Sistema
+Reparto: Aún existente para generación de transición.
+Capitalización Individual: Afores.
+Ahorro Voluntario: Aportaciones adicionales.
+Pilar 0: Pensión no contributiva (universal). [1, 2, 3]
+Para el ISSSTE, los trabajadores gubernamentales operan bajo esquemas similares de cuentas individuales o transitorios. [1, 2]
+
+otras fuentes para revisar
+
+¿Cuántos sistemas de pensiones hay en México?
+
+
+
+
+esta landing es muy parecido a lo que yo quisiera  tener al final! y promoverla por diversos medios
+https://landings.pensionamigo.mx/?gad_source=1&gad_campaignid=22496708770&gbraid=0AAAAA_UTbW2kTd93D5u329NEpI6jBf-nK&gclid=Cj0KCQjwiJvQBhCYARIsAMjts3K7volJRkVAJfJ7V4r0ta-yZQ6TrfWNcmFdgY5dTR7y0Ruh9Fv_i5saAqNuEALw_wcB
+
+https://www.gob.mx/pensionissste/prensa/los-sistemas-de-pensiones-en-mexico 
+
+PDF document
+
+El sistema de pensiones en México: institucionalidad, gasto público y sostenibilidad financiera 
+
+PDF document
+Sistema de pensiones | Afore InverCap 
+
+https://archivos.juridicas.unam.mx/www/bjv/libros/13/6327/5.pdf
+
+Viability and Impact of Pension Systems in Mexico: Differences and Future Prospects 
+
+¿Cuáles son los regímenes para pensionarme? 
+
+PDF document
+
+Pensiones en el IMSS 
+
+Organismos del Mercado Asegurador en México de Seguro 
