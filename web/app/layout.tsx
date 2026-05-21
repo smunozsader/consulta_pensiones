@@ -52,7 +52,7 @@ export default function RootLayout({
         {/* TODO: Reemplaza G-XXXXXXXXXX con tu ID real de Google Analytics */}
         {/* Para obtenerlo: Google Analytics → Admin → Data Streams → Tu sitio → Measurement ID (formato: G-XXXXXXX) */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-PENSIONES2026"
+          src="https://www.googletagmanager.com/gtag/js?id=G-NHY7BGK2DF"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -60,7 +60,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-PENSIONES2026');
+            gtag('config', 'G-NHY7BGK2DF');
           `}
         </Script>
 
