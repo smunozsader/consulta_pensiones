@@ -28,6 +28,13 @@ interface InversionResultado {
   promedio_mensual: number;
 }
 
+interface ValidacionResultado {
+  es_valido: boolean;
+  advertencias: string[];
+  recomendaciones: string[];
+  requiere_validacion_imss: boolean;
+}
+
 export class CalculadoraModalidad40 {
   private uma_diaria_2025 = 113.14;
   private uma_mensual_2025 = 3439.46;
@@ -190,6 +197,84 @@ export class CalculadoraModalidad40 {
       gafes_total,
       pension_con_gafes,
       descripcion: `${semanas_cotizadas} semanas a ${sdp_diario.toFixed(2)}/día = $${pension_con_gafes.toFixed(2)}/mes`
+    };
+  }
+
+  // Validar requisitos legales (Artículos 218-239 LSS)
+  validarRequisitos(
+    semanas_cotizadas: number,
+    modalidad: 'ley73' | 'modalidad10' | 'modalidad13' | 'modalidad40' = 'ley73',
+    semanas_ultimos_5_años?: number
+  ): ValidacionResultado {
+    const advertencias: string[] = [];
+    const recomendaciones: string[] = [];
+    let es_valido = true;
+    let requiere_validacion_imss = false;
+
+    // Validación Ley 73 General
+    if (modalidad === 'ley73') {
+      if (semanas_cotizadas < 500) {
+        es_valido = false;
+        advertencias.push(`❌ Semanas insuficientes: tienes ${semanas_cotizadas} semanas, necesitas mínimo 500 para Ley 73.`);
+        recomendaciones.push('Considera acreditar períodos sin registro o usar Modalidad 40 para completar semanas.');
+      } else if (semanas_cotizadas < 600) {
+        advertencias.push(`⚠️ Cerca del mínimo: tienes ${semanas_cotizadas} semanas (mínimo: 500). Considera mejorar tu posición.`);
+        recomendaciones.push('Modalidad 40 podría incrementar significativamente tu pensión.');
+      } else {
+        advertencias.push(`✅ Cumples requisito Ley 73: ${semanas_cotizadas} semanas ≥ 500.`);
+      }
+    }
+
+    // Validación Modalidad 13 (CRÍTICO: 750 semanas)
+    if (modalidad === 'modalidad13') {
+      if (semanas_cotizadas < 750) {
+        advertencias.push(`🔴 MODALIDAD 13 REQUIERE 750 SEMANAS (NO 500)`);
+        advertencias.push(`Tienes: ${semanas_cotizadas} semanas | Necesitas: 750 semanas | Falta: ${750 - semanas_cotizadas} semanas`);
+
+        if (semanas_cotizadas >= 500) {
+          recomendaciones.push('✅ Cumples 500 semanas (Ley 73 general) pero NO cumples 750 para Modalidad 13 sola.');
+          recomendaciones.push('SOLUCIÓN: Combina Modalidad 13 con empleos formales para aplicar requisito de 500 semanas.');
+        } else {
+          es_valido = false;
+          recomendaciones.push('Necesitas alcanzar 750 semanas O combinar con empleos formales para llegar a 500 semanas.');
+        }
+        requiere_validacion_imss = true;
+      } else {
+        advertencias.push(`✅ Cumples Modalidad 13: ${semanas_cotizadas} semanas ≥ 750.`);
+      }
+    }
+
+    // Validación Modalidad 40 (Art. 218-221: 52 semanas en últimos 5 años)
+    if (modalidad === 'modalidad40') {
+      if (semanas_ultimos_5_años === undefined) {
+        recomendaciones.push('⚠️ Para Modalidad 40: necesitas información de semanas en últimos 5 años.');
+      } else if (semanas_ultimos_5_años < 52) {
+        es_valido = false;
+        advertencias.push(`❌ Modalidad 40 requiere 52 semanas en últimos 5 años. Tienes: ${semanas_ultimos_5_años}.`);
+        recomendaciones.push('No calificas para Modalidad 40. Consulta con IMSS sobre otras opciones.');
+        requiere_validacion_imss = true;
+      } else {
+        advertencias.push(`✅ Cumples requisito Modalidad 40: ${semanas_ultimos_5_años} semanas en últimos 5 años ≥ 52.`);
+      }
+    }
+
+    // Validación Modalidad 10
+    if (modalidad === 'modalidad10') {
+      advertencias.push(`✅ Modalidad 10: permite cotización voluntaria sin requisito mínimo de semanas.`);
+      if (semanas_cotizadas < 500) {
+        recomendaciones.push(`Actual: ${semanas_cotizadas} semanas. Necesitas llegar a 500 para pensión Ley 73.`);
+        requiere_validacion_imss = true;
+      }
+    }
+
+    // Siempre agregar disclaimer general
+    advertencias.push('⚠️ Estos números son ESTIMATIVOS. Valida tu caso con IMSS antes de actuar.');
+
+    return {
+      es_valido,
+      advertencias,
+      recomendaciones,
+      requiere_validacion_imss
     };
   }
 }

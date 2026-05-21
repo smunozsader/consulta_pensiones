@@ -63,6 +63,11 @@ export default function CalculadoraPage() {
     return calculadora.calcularInversionTotal(sdp);
   }, [sdp, calculadora]);
 
+  const validacion = useMemo(() => {
+    // Validar según tipo (asumimos Ley 73 por defecto en la calculadora)
+    return calculadora.validarRequisitos(semanas, 'ley73');
+  }, [semanas, calculadora]);
+
   const cargarCaso = (caso_id: string) => {
     const caso = casospracticos[caso_id];
     if (caso) {
@@ -285,6 +290,45 @@ export default function CalculadoraPage() {
                         ${inversion.total_5_años.toFixed(2)}
                       </p>
                     </div>
+                  </div>
+                </div>
+
+                {/* Validación Legal */}
+                <div className={`p-6 rounded-lg border-2 ${
+                  validacion.es_valido
+                    ? 'bg-green-50 border-green-300'
+                    : 'bg-red-50 border-red-300'
+                }`}>
+                  <h4 className={`font-bold mb-3 ${
+                    validacion.es_valido ? 'text-green-900' : 'text-red-900'
+                  }`}>
+                    Validación Legal
+                  </h4>
+                  <div className="space-y-3 text-sm">
+                    {validacion.advertencias.map((adv, idx) => (
+                      <p key={idx} className={validacion.es_valido ? 'text-green-800' : 'text-red-800'}>
+                        {adv}
+                      </p>
+                    ))}
+                    {validacion.recomendaciones.length > 0 && (
+                      <>
+                        <div className="border-t pt-2 mt-2">
+                          <p className="font-semibold text-gray-900 mb-2">💡 Recomendaciones:</p>
+                          <ul className="space-y-1">
+                            {validacion.recomendaciones.map((rec, idx) => (
+                              <li key={idx} className="text-gray-700">
+                                • {rec}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </>
+                    )}
+                    {validacion.requiere_validacion_imss && (
+                      <p className="bg-yellow-100 text-yellow-900 p-2 rounded mt-2 font-semibold">
+                        ⚠️ Requiere validación IMSS antes de actuar
+                      </p>
+                    )}
                   </div>
                 </div>
               </>
