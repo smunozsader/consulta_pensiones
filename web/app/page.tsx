@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import Hero from './components/Hero';
 
 export default function Home() {
   const [email, setEmail] = useState('');
@@ -34,8 +35,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex justify-between items-center">
+      <header className="border-b border-gray-200 absolute top-0 left-0 right-0 z-10 bg-white/80 backdrop-blur">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex justify-between items-center">
           <div className="text-2xl font-bold text-blue-600">Consultoría de Pensiones</div>
           <a
             href="https://wa.me/529992005550"
@@ -48,52 +49,12 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              ¿Cuánto voy a recibir de pensión?
-            </h1>
-            <p className="text-xl text-gray-600 mb-8">
-              Analiza tu caso en 10 minutos. Descubre tu elegibilidad bajo Ley 73 y optimiza tus opciones de pensión con asesoría profesional especializada.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/calculadora"
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold text-center transition"
-              >
-                Usar Calculadora
-              </Link>
-              <a
-                href="#form"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-center transition"
-              >
-                Obtén Guía Gratis
-              </a>
-              <a
-                href="https://wa.me/529992005550"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-semibold text-center transition"
-              >
-                Agendar Consulta
-              </a>
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg h-96 flex items-center justify-center">
-            <div className="text-center">
-              <p className="text-gray-600 text-lg">Visualización del análisis</p>
-              <p className="text-4xl font-bold text-blue-600 mt-4">+500 clientes</p>
-              <p className="text-gray-600 mt-2">han optimizado su pensión</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section - Figma Design */}
+      <Hero />
 
       {/* Legal Disclaimer */}
-      <section className="bg-yellow-50 py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-yellow-50 py-8 mt-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
             <div className="flex items-start">
               <span className="text-xl mr-3">⚠️</span>
@@ -113,7 +74,7 @@ export default function Home() {
 
       {/* Social Proof */}
       <section className="bg-gray-50 py-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
             Por qué elegir nuestra asesoría
           </h2>
@@ -138,7 +99,7 @@ export default function Home() {
       </section>
 
       {/* CTA Form Section */}
-      <section id="form" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section id="form" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg p-12 text-white">
           <h2 className="text-3xl font-bold mb-4">
             Descarga la guía: Cálculo de Semanas Cotizadas
@@ -177,7 +138,7 @@ export default function Home() {
 
       {/* Blog Preview */}
       <section className="bg-gray-50 py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">
             Recursos educativos gratuitos
           </h2>
@@ -207,7 +168,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <h4 className="font-bold mb-4">Consultoría</h4>
