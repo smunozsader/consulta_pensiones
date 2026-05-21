@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import LegalDisclaimer from '../components/LegalDisclaimer';
 
 const cases = [
   {
@@ -73,6 +74,11 @@ export default function CasosPage() {
             Historias reales de clientes que mejoraron significativamente su pensión
           </p>
         </div>
+      </section>
+
+      {/* Legal Disclaimer */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+        <LegalDisclaimer variant="compact" />
       </section>
 
       {/* Cases Grid */}

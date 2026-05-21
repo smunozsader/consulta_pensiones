@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
 import { CalculadoraModalidad40 } from '@/lib/calculadora';
+import LegalDisclaimer from '../components/LegalDisclaimer';
 
 interface CasoPractico {
   nombre: string;
@@ -125,6 +126,11 @@ export default function CalculadoraPage() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Legal Disclaimer */}
+            <div>
+              <LegalDisclaimer variant="calculator" />
             </div>
 
             {/* Form */}

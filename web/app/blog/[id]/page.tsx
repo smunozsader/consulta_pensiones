@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getPostContent, getPostTitle } from '@/lib/markdown';
+import LegalDisclaimer from '@/app/components/LegalDisclaimer';
 
 export default async function BlogPostPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -44,6 +45,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
           </a>
         </div>
       </header>
+
+      {/* Legal Disclaimer */}
+      <section className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+        <LegalDisclaimer variant="compact" />
+      </section>
 
       {/* Blog Post */}
       <article className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-20">

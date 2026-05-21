@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { sendEmail } from '@/lib/emailjs-config';
+import LegalDisclaimer from './components/LegalDisclaimer';
 
 export default function Home() {
   const [email, setEmail] = useState('');
@@ -95,6 +96,13 @@ export default function Home() {
               <p className="text-gray-600 mt-2">han optimizado su pensión</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Legal Disclaimer */}
+      <section className="bg-yellow-50 py-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <LegalDisclaimer variant="compact" />
         </div>
       </section>
 

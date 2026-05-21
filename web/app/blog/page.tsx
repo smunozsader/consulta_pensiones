@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import LegalDisclaimer from '../components/LegalDisclaimer';
 
 const blogPosts = [
   {
@@ -76,6 +77,10 @@ export default function BlogPage() {
           <p className="text-xl text-gray-600">
             Guías completas, casos prácticos y análisis normativo para ayudarte a entender tus opciones de pensión.
           </p>
+        </div>
+
+        <div className="mb-8">
+          <LegalDisclaimer variant="compact" />
         </div>
 
         <div className="grid gap-8">
