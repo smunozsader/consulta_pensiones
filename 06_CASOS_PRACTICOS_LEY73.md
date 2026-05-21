@@ -248,11 +248,22 @@ Laura trabajó como abogada independiente desde 1995 sin registro. Pero puede ac
 - Salario Diario Promedio: Se calcula con los años que logre acreditar (~$300/día si promedian 1995-2026)
 - **Pensión estimada: $300 × 0.90 × 30 = $8,100/mes**
 
-**Limitación:** La acreditación no es automática. Requiere:
+**Limitación CRÍTICA:** La acreditación no es automática. Requiere:
 1. Solicitud formal ante IMSS
-2. Presentación de comprobantes contundentes
-3. Validación de actividad continua
+2. Presentación de comprobantes contundentes (ISR históricos, facturas, cédula profesional)
+3. Validación de actividad continua (sin lagunas > 2 años)
 4. Posible negociación si hay lagunas documentales
+5. **IMSS puede aceptar acreditación parcial** (ej: 20 años de 31 años solicitados)
+
+**Realidad de la acreditación:**
+- IMSS valida año por año, requiere documentación contemporánea
+- Las ISR son el documento más fuerte
+- Sin ISR desde 1995, solo puede acreditar desde cuando comenzó a presentar impuestos
+
+**Escenario más probable:** 
+- Acreditación desde 2005-2026 (21 años confirmables con ISR)
+- Total: 260 + ~252 = 512 semanas
+- Suficiente para pensión pero no abundante
 
 ---
 
@@ -313,6 +324,16 @@ Laura trabajó como abogada independiente desde 1995 sin registro. Pero puede ac
 
 **Edad:** 60 años (Solo 5 años hasta los 65)
 
+**⚠️ HALLAZGO CRÍTICO - Modalidad 13 requiere 750 semanas:**
+
+Javier cotiza principalmente bajo Modalidad 13 desde 2015. Sin embargo, Modalidad 13 (trabajadores agrícolas) requiere **MÍNIMO 750 semanas** para pensión vejez, NO 500 semanas como Ley 73 general.
+
+Esto significa:
+- Para pensión únicamente bajo Modalidad 13: Necesita 750 semanas (falta 302)
+- Para pensión bajo Ley 73 combinando períodos: Necesita 500 semanas (falta 52)
+
+**Estrategia:** Debe combinar períodos formales (1980-1989 como obrero) con Modalidad 13 para que se aplique el requisito de 500 semanas (no 750).
+
 **Años de inactividad registrada:** 1989-2015 (26 años sin cotización formal)
 
 **Salario Diario Promedio:**
@@ -330,15 +351,18 @@ Laura trabajó como abogada independiente desde 1995 sin registro. Pero puede ac
 **Opción 1: Nada (Aceptar 448 semanas a los 65)**
 
 A los 65 años:
-- Semanas: 448 + 60 (5 años × 12) = **508 semanas** ✓ (Apenas alcanza 500)
+- Semanas: 448 + 60 (5 años × 12) = **508 semanas**
 - Salario Diario Promedio: ~$65/día
 - Factor actuarial: 90%
 - **Pensión mensual: $65 × 0.90 × 30 = $1,755/mes**
 
-**Análisis:**
-- Alcanza el mínimo de 500 semanas
+**Análisis del requisito:**
+- ✓ Alcanza 500 semanas (porque tiene período formal 1980-1989)
+- ✓ Se aplica requisito Ley 73 de 500 semanas (no los 750 de Modalidad 13 sola)
 - Pero la pensión es muy baja: $1,755/mes = ~$21,060/año
 - Apenas cubre gastos básicos
+
+**IMPORTANTE:** Si solo contara Modalidad 13 (2015-2026), tendría 84 semanas. Modalidad 13 sola requiere 750 semanas. Por eso es crítico que combine con sus 364 semanas formales del período 1980-1989.
 
 ---
 

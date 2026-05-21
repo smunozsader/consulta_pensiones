@@ -166,6 +166,41 @@ El cálculo del Salario Diario Promedio es problemático para trabajadores agrí
 
 ---
 
+## ⚠️ REQUISITO CRÍTICO: 750 Semanas para Pensión Vejez en Modalidad 13
+
+Este es uno de los aspectos más importantes que distingue a Modalidad 13 de otros regímenes:
+
+### La Diferencia de Semanas
+
+| Modalidad/Régimen | Semanas Requeridas | Edad Mínima |
+|---|---|---|
+| **Ley 73 (General)** | 500 semanas | 65 años |
+| **Modalidad 13 (Agrícola)** | **750 semanas** | **60 años** |
+
+**Esto significa:** Si cotiza ÚNICAMENTE bajo Modalidad 13, debe alcanzar **750 semanas** para tener derecho a pensión vejez a los 60 años. Este requisito es SUPERIOR al de 500 semanas de Ley 73 general.
+
+### Por qué 750 Semanas en Modalidad 13
+
+El IMSS estableció este requisito más exigente porque reconoce que:
+
+1. **Cotización estacional:** Un trabajador agrícola cotiza solo 4-6 meses al año, no 12 meses como un empleado formal
+2. **Semanas menos frecuentes:** Toma más AÑOS alcanzar el mismo número de semanas
+3. **Equilibrio financiero:** El sistema requiere contribuciones más sólidas para garantizar viabilidad de la pensión
+
+**Matemáticas de realidad:**
+- Cotización 6 meses/año = 26 semanas/año
+- Para alcanzar 750 semanas: 750 ÷ 26 = **28.8 años de cotización**
+- Esto significa comenzar a los 32 años para terminar a los 60-61
+
+### Implicación Práctica: La Trampa para Agricultores
+
+Un trabajador que cotiza 4 meses/año durante 20 años acumula:
+- 4 meses × 20 años = **80 semanas** (muy lejos de las 750 necesarias)
+
+**Para alcanzar 750 semanas en 20 años de actividad:** Necesitaría cotizar **37.5 semanas/año = prácticamente todos los meses del año**, lo cual contradice el propósito de Modalidad 13 (flexibilidad estacional).
+
+---
+
 ## Regulación y Restricciones
 
 ### Continuidad Requerida
@@ -208,9 +243,15 @@ Si cambia de actividad agrícola (deja maíz, inicia ganadería), puede cambiar 
 - Aportación anual: $600-800
 - A los 65, habrá acumulado 60 semanas (15 años x 4 semanas/año)
 
-**Limitación:** No alcanza 500 semanas. Necesitaría complementar con otro ingreso o actividad durante el año, O negociar con IMSS por procedimientos excepcionales.
+**Limitación CRÍTICA:** 60 semanas es insuficiente INCLUSO para el mínimo. Modalidad 13 requiere 750 semanas para pensión a los 60-65 años.
 
-**Solución alternativa:** Combinar Modalidad 13 (épocas de cosecha) + pequeño trabajo jornalero (épocas bajas) bajo empleador ocasional, para sumar semanas de ambas fuentes.
+**La Realidad:** Este productor pequeño NO CALIFICARÍA para pensión de vejez únicamente bajo Modalidad 13 a los 65 años.
+
+**Solución alternativa:** 
+1. **Combinar modalidades:** Modalidad 13 (épocas de cosecha) + pequeño trabajo jornalero ocasional (épocas bajas) bajo empleador formal, para sumar semanas de ambas fuentes
+2. **Aumentar frecuencia:** Incrementar aportaciones a 8-10 meses/año para alcanzar ~40 semanas/año (requeriría 20 años continuos)
+3. **Acreditación:** Intentar acreditar períodos de trabajo previos sin registro (requiere documentación válida)
+4. **Modalidad 40 al final:** A los 55-60, cambiar a Modalidad 40 para intensificar cotizaciones finales
 
 ---
 
@@ -231,11 +272,15 @@ Si cambia de actividad agrícola (deja maíz, inicia ganadería), puede cambiar 
 **Total a los 65:**
 - Semanas previas: 100
 - Nuevas semanas: 100
-- Total: 200 semanas (aún falta 300 para pensión Ley 73)
+- Total: 200 semanas
 
-**Opción de complemento:** 
-- Última opción a los 63-64: cambiar a Modalidad 40 (más flexible) para intensificar cotizaciones finales
-- O negociar acreditación de períodos trabajados sin registro (cartas patronales de ranchos anteriores)
+**PROBLEMA CRÍTICO:** 200 semanas está lejos de las **750 semanas requeridas para Modalidad 13**. Este ganadero tampoco calificaría para pensión de vejez bajo Modalidad 13 únicamente.
+
+**Opción de complemento (NECESARIA):** 
+- **Cambiar a Modalidad 40 a los 55:** Con historia de 100 semanas previas + 100 nuevas = 200 semanas, aplica para Modalidad 40 (requiere 52 semanas en últimos 5 años)
+- **Modalidad 40 años 55-65:** Aportaciones intensivas durante 10 años = 520 semanas adicionales
+- **Total a los 65:** 200 + 520 = **720 semanas** (cercano a requisito, pero necesitaría validación IMSS)
+- **O:** Acreditar períodos de jornalero sin registro (cartas patronales de ranchos anteriores) para alcanzar 750
 
 ---
 

@@ -64,9 +64,32 @@ Sin Modalidad 40, esos 10 años crean un "agujero" en el historial que afecta el
 
 3. **Identificación oficial vigente** (INE, pasaporte, cédula)
 
-### No Hay Requisitos de Edad, Saldo Previo, o Semanas Mínimas
+### Requisitos Legales Específicos (Artículos 218-221 LSS)
 
-A diferencia de la pensión, que exige 500 semanas cotizadas, la Modalidad 40 **no tiene requisito mínimo de semanas**. Alguien con 100 semanas cotizadas puede acceder. Lo que cambia es la estrategia: acumular más semanas, mejorar el promedio salarial, o ambas.
+✅ **SÍ Hay un requisito específico de semanas:**
+
+**Requisito 1: Mínimo 52 Semanas en Últimos 5 Años**
+
+Para acceder a Modalidad 40, debe tener **al menos 52 semanas cotizadas en los últimos 5 años previos a la solicitud.**
+
+Esto es más flexible que el requisito de pensión (500 semanas total), pero establece un piso: debe haber trabajado formalmente en los últimos 5 años.
+
+**Validación:** Alguien con 100 semanas totales (pero todas hace 15 años) NO calificaría. Alguien con 480 semanas previas hace 5 años SÍ calificaría.
+
+**Requisito 2: Límite de 5 Años Desde Baja**
+
+No puede haber pasado **más de 5 años** desde la fecha en que dejó de tener empleador formal.
+
+**En práctica:** Si dejó de trabajar a los 55 años, tiene hasta los 60 años para solicitar Modalidad 40. Después de 5 años (a los 60), ya no califica automáticamente.
+
+**Implicación para estrategia:** Esto convierte a Modalidad 40 en una ventana de oportunidad temporal, no una opción infinita.
+
+### Lo Que SÍ Es Flexible
+
+A diferencia de pensión, Modalidad 40:
+- **No tiene requisito de edad** (puede solicitar a los 40, 50, 60, aunque el propósito típico es 55-65)
+- **No especifica monto máximo** (solo límite de 25 UMA diarias de base, como Modalidad 10)
+- **Permite pausar y reanudar** (si deja de aportar 6 meses, puede reiniciar)
 
 ---
 
