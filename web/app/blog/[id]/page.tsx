@@ -46,17 +46,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
       </header>
 
       {/* Blog Post */}
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <article className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <Link href="/blog" className="text-blue-600 hover:text-blue-800 mb-8 inline-block">
           ← Volver al blog
         </Link>
 
         <h1 className="text-4xl font-bold text-gray-900 mb-8 leading-tight">{title}</h1>
 
-        <div className="prose prose-lg max-w-none">
+        <div className="prose prose-lg prose-headings:text-gray-900 prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-li:text-gray-700 max-w-none">
           <div
             dangerouslySetInnerHTML={{ __html: content }}
-            className="text-gray-700 leading-relaxed space-y-6"
+            className="text-gray-700 leading-relaxed space-y-4 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600"
           />
         </div>
 
