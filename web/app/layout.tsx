@@ -76,7 +76,7 @@ export default function RootLayout({
               description: "Asesoría especializada en pensiones IMSS Ley 73",
               url: "https://pensiones-consulting.mx",
               telephone: "+525512345678",
-              email: "smunozam@gmail.com",
+              email: "mi.consultor.pensiones@gmail.com",
               address: {
                 "@type": "PostalAddress",
                 addressCountry: "MX",

@@ -234,7 +234,7 @@ export default function Home() {
             <div>
               <h4 className="font-bold mb-4">Contacto</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li>Email: smunozam@gmail.com</li>
+                <li>Email: mi.consultor.pensiones@gmail.com</li>
                 <li>WhatsApp: +52 999 200 5550</li>
                 <li>Mérida, Yucatán</li>
               </ul>
