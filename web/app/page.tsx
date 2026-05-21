@@ -67,6 +67,12 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
+                href="/calculadora"
+                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold text-center transition"
+              >
+                Usar Calculadora
+              </a>
+              <a
                 href="#form"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-center transition"
               >

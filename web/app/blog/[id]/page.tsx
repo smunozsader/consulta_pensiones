@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { getPostContent, getPostTitle } from '@/lib/markdown';
 
-export default async function BlogPostPage({ params }: { params: { id: string } }) {
-  const content = await getPostContent(params.id);
-  const title = getPostTitle(params.id);
+export default async function BlogPostPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const content = await getPostContent(id);
+  const title = getPostTitle(id);
 
   if (!content) {
     return (

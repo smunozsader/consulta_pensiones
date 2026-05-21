@@ -8,11 +8,6 @@ const md = new MarkdownIt({
   typographer: true,
 });
 
-const docsDir = path.join(
-  process.cwd(),
-  '..',
-);
-
 const fileMapping: Record<string, string> = {
   'elegibilidad-ley73': '01_ELEGIBILIDAD_LEY73.md',
   'modalidad-10': '03_MODALIDAD_10.md',
@@ -22,16 +17,48 @@ const fileMapping: Record<string, string> = {
   'casos-ley97': '07_CASOS_PRACTICOS_LEY97_AFORES.md',
 };
 
+function findContentDir(): string {
+  const cwd = process.cwd();
+  const possiblePaths = [
+    path.join(cwd, 'content'),
+    path.join(cwd, 'web', 'content'),
+    path.join(cwd, '..', 'content'),
+  ];
+
+  for (const dirPath of possiblePaths) {
+    if (fs.existsSync(dirPath)) {
+      console.log(`✓ Found content directory at: ${dirPath}`);
+      return dirPath;
+    }
+  }
+
+  console.warn(`⚠ Content directory not found. Tried: ${possiblePaths.join(', ')}`);
+  console.warn(`Current working directory: ${cwd}`);
+  return path.join(cwd, 'content');
+}
+
+const docsDir = findContentDir();
+
 export async function getPostContent(id: string): Promise<string | null> {
   const fileName = fileMapping[id];
-  if (!fileName) return null;
+  if (!fileName) {
+    console.warn(`⚠ No file mapping for ID: ${id}`);
+    return null;
+  }
 
   try {
     const filePath = path.join(docsDir, fileName);
+    console.log(`📖 Attempting to read: ${filePath}`);
+
+    if (!fs.existsSync(filePath)) {
+      console.error(`✗ File not found: ${filePath}`);
+      return null;
+    }
+
     const content = fs.readFileSync(filePath, 'utf-8');
     return md.render(content);
   } catch (error) {
-    console.error(`Error reading file for post ${id}:`, error);
+    console.error(`✗ Error reading file for post ${id}:`, error);
     return null;
   }
 }
