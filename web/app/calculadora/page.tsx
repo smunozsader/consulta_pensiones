@@ -87,7 +87,7 @@ export default function CalculadoraPage() {
             Consultoría de Pensiones
           </Link>
           <a
-            href="https://wa.me/5215512345678"
+            href="https://wa.me/529992005550"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium"
@@ -355,7 +355,7 @@ export default function CalculadoraPage() {
             Esta calculadora es una estimación. Contáctame para una asesoría completa con proyecciones detalladas.
           </p>
           <a
-            href="https://wa.me/5215512345678"
+            href="https://wa.me/529992005550"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-bold inline-block"

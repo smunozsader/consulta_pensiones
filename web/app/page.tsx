@@ -38,7 +38,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex justify-between items-center">
           <div className="text-2xl font-bold text-blue-600">Consultoría de Pensiones</div>
           <a
-            href="https://wa.me/5215512345678"
+            href="https://wa.me/529992005550"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium"
@@ -72,7 +72,7 @@ export default function Home() {
                 Obtén Guía Gratis
               </a>
               <a
-                href="https://wa.me/5215512345678"
+                href="https://wa.me/529992005550"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-semibold text-center transition"
@@ -214,7 +214,7 @@ export default function Home() {
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li><Link href="/about" className="hover:text-white">Acerca de</Link></li>
                 <li><Link href="/casos" className="hover:text-white">Casos de éxito</Link></li>
-                <li><a href="https://wa.me/5215512345678" className="hover:text-white">Agendar consulta</a></li>
+                <li><a href="https://wa.me/529992005550" className="hover:text-white">Agendar consulta</a></li>
               </ul>
             </div>
             <div>
@@ -235,8 +235,8 @@ export default function Home() {
               <h4 className="font-bold mb-4">Contacto</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>Email: smunozam@gmail.com</li>
-                <li>WhatsApp: +52 1 55 1234 5678</li>
-                <li>Ciudad de México</li>
+                <li>WhatsApp: +52 999 200 5550</li>
+                <li>Mérida, Yucatán</li>
               </ul>
             </div>
           </div>
