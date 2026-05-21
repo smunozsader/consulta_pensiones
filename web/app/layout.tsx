@@ -49,8 +49,10 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
 
         {/* Google Analytics */}
+        {/* TODO: Reemplaza G-XXXXXXXXXX con tu ID real de Google Analytics */}
+        {/* Para obtenerlo: Google Analytics → Admin → Data Streams → Tu sitio → Measurement ID (formato: G-XXXXXXX) */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-PENSIONES2026"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -58,7 +60,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
+            gtag('config', 'G-PENSIONES2026');
           `}
         </Script>
 
@@ -107,8 +109,8 @@ export default function RootLayout({
           }}
         />
 
-        {/* No Index while in development */}
-        <meta name="robots" content="noindex, nofollow" />
+        {/* SEO: Allow indexation */}
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
