@@ -83,7 +83,7 @@ export async function POST(request: Request) {
     // Send access email via Resend
     const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
-      from: 'mi.consultor.pensiones@gmail.com',
+      from: 'onboarding@resend.dev',
       to: correo,
       subject: '✓ Tu acceso a contenido educativo - Consultoría de Pensiones',
       html: `
