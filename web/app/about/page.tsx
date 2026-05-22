@@ -113,37 +113,23 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Nuestros Servicios</h2>
-            <div className="space-y-4">
-              <div className="border-l-4 border-blue-600 pl-4">
-                <h3 className="font-bold text-gray-900">Consulta Inicial - $1,490</h3>
-                <p className="text-gray-700 text-sm mt-1">
-                  Revisión de tu estado de cuenta IMSS, análisis de elegibilidad,
-                  y evaluación inicial de opciones disponibles.
-                </p>
-              </div>
-              <div className="border-l-4 border-blue-600 pl-4">
-                <h3 className="font-bold text-gray-900">Estrategia Completa - $3,500</h3>
-                <p className="text-gray-700 text-sm mt-1">
-                  Análisis exhaustivo, proyecciones de pensión bajo diferentes estrategias,
-                  recomendación personalizada.
-                </p>
-              </div>
-              <div className="border-l-4 border-blue-600 pl-4">
-                <h3 className="font-bold text-gray-900">Acompañamiento Integral - $6,470</h3>
-                <p className="text-gray-700 text-sm mt-1">
-                  Análisis completo, gestión de trámites, seguimiento hasta jubilación
-                  y después.
-                </p>
-              </div>
-            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Cómo Trabajamos</h2>
+            <p className="text-gray-700 mb-4">
+              Cada consultoría comienza con un diagnóstico de tu situación específica.
+              Revisamos tu estado de cuenta, historia laboral, y opciones disponibles.
+              Luego diseñamos una estrategia personalizada según tu caso.
+            </p>
+            <p className="text-gray-700">
+              Los precios varían según complejidad del caso. Contáctame para una evaluación inicial
+              sin compromiso donde podamos definir exactamente qué necesitas.
+            </p>
           </div>
 
           <div className="bg-blue-50 p-8 rounded-lg">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">¿Listo para Optimizar tu Pensión?</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">¿Quieres Analizar tu Caso?</h2>
             <p className="text-gray-700 mb-6">
-              Contáctame hoy para una consulta inicial. Sin compromisos, sin presión.
-              Solo una conversación honesta sobre tus opciones.
+              Contáctame por WhatsApp para una conversación inicial. Evaluaremos tu situación
+              sin compromisos y definiremos juntos la mejor estrategia para ti.
             </p>
             <a
               href="https://wa.me/5215512345678"
