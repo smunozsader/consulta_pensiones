@@ -3,11 +3,13 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import Footer from '@/app/components/Footer';
-import ServiceRequestModal from '@/app/components/ServiceRequestModal';
+// TODO: Import ServiceRequestModal once created
+// import ServiceRequestModal from '@/app/components/ServiceRequestModal';
 
 export default function ServiciosPage() {
-  const [selectedService, setSelectedService] = useState<string | null>(null);
-  const [modalOpen, setModalOpen] = useState(false);
+  // TODO: Uncomment when ServiceRequestModal is created
+  // const [selectedService, setSelectedService] = useState<string | null>(null);
+  // const [modalOpen, setModalOpen] = useState(false);
 
   const services = [
     {
@@ -104,12 +106,14 @@ export default function ServiciosPage() {
 
               <button
                 onClick={() => {
-                  setSelectedService(service.id);
-                  setModalOpen(true);
+                  // TODO: Uncomment when ServiceRequestModal is created
+                  // setSelectedService(service.id);
+                  // setModalOpen(true);
+                  alert('Coming soon! Modal will be available tomorrow.');
                 }}
                 className="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition"
               >
-                Solicitar Servicio
+                Solicitar Servicio (Coming Soon)
               </button>
             </div>
           ))}
@@ -152,11 +156,13 @@ export default function ServiciosPage() {
         </div>
       </main>
 
+      {/* TODO: Uncomment when ServiceRequestModal is created
       <ServiceRequestModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         serviceName={selectedService || ''}
       />
+      */}
 
       <Footer />
     </div>
