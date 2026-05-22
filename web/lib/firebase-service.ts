@@ -48,8 +48,8 @@ export async function verifyAccessToken(token: string) {
       return { valid: false, subscriber: null };
     }
 
-    let subscriber = null;
-    let subscriberId = null;
+    let subscriber: any = null;
+    let subscriberId: string | null = null;
 
     snapshot.forEach((childSnapshot) => {
       subscriber = childSnapshot.val();
