@@ -22,7 +22,7 @@ export default function PrivacidadPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-4">Responsable del Tratamiento de Datos</h2>
             <p>
               <strong>Nombre:</strong> Consultoría Integral de Pensiones<br/>
-              <strong>Responsable Legal:</strong> Sergio Muñoz<br/>
+              <strong>Responsable Legal:</strong> Sergio Muñoz de Alba Medrano<br/>
               <strong>Domicilio:</strong> Mérida, Yucatán, México<br/>
               <strong>Email:</strong> mi.consultor.pensiones@gmail.com<br/>
               <strong>WhatsApp:</strong> +52 999 200 5550

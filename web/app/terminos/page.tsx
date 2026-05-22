@@ -22,7 +22,7 @@ export default function TerminosPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-4">Bienvenida</h2>
             <p>
               Bienvenido a <strong>Consultoría Integral de Pensiones</strong> (en adelante, "la Consultoría"),
-              operada por Sergio Muñoz con domicilio en Mérida, Yucatán, México (en adelante, "el Consultor").
+              operada por Sergio Muñoz de Alba Medrano con domicilio en Mérida, Yucatán, México (en adelante, "el Consultor").
             </p>
             <p className="mt-4">
               El presente documento establece los términos y condiciones bajo los cuales se prestan servicios
