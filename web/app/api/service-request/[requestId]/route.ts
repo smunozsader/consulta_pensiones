@@ -10,14 +10,14 @@ function isAuthorized(request: Request): boolean {
 
 export async function PATCH(
   request: Request,
-  { params }: { params: { requestId: string } }
+  { params }: { params: Promise<{ requestId: string }> }
 ) {
   if (!isAuthorized(request)) {
     return Response.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   try {
-    const { requestId } = params;
+    const { requestId } = await params;
     const body = await request.json();
 
     const { status, notes, expectedCompletionDate, paymentStatus } = body;
@@ -53,14 +53,14 @@ export async function PATCH(
 
 export async function GET(
   request: Request,
-  { params }: { params: { requestId: string } }
+  { params }: { params: Promise<{ requestId: string }> }
 ) {
   if (!isAuthorized(request)) {
     return Response.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   try {
-    const { requestId } = params;
+    const { requestId } = await params;
     const result = await getServiceRequest(requestId);
 
     if (!result.success) {
