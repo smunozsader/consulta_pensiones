@@ -35,22 +35,31 @@ export default function TerminosPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Naturaleza de los Servicios</h2>
             <p>
               Consultoría Integral de Pensiones ofrece servicios educativos y de asesoría especializada sobre
-              normativa de pensiones mexicanas (Ley 73, Ley 97, IMSS, ISSSTE, modalidades de cotización).
+              normativa de pensiones y jubilaciones mexicanas. Operamos en dos sistemas institucionales distintos:
+            </p>
+            <p className="mt-4">
+              <strong>Sistema IMSS (Pensiones):</strong> Ley 73 (régimen garantizado) y Ley 97 (régimen de cuentas individuales/AFORES),
+              aplicable a trabajadores del sector privado.
+            </p>
+            <p className="mt-2">
+              <strong>Sistema ISSSTE (Jubilaciones):</strong> Régimen de Décimo Transitorio y régimen de Cuentas Individuales,
+              aplicable a trabajadores del sector público.
             </p>
             <p className="mt-4">
               <strong>Los servicios incluyen:</strong>
             </p>
             <ul className="list-disc pl-6 space-y-2 my-4">
-              <li>Análisis de estado de cuenta IMSS</li>
-              <li>Análisis de estado de cuenta ISSSTE</li>
-              <li>Evaluación de elegibilidad para pensión</li>
-              <li>Proyecciones de pensión bajo diferentes estrategias</li>
-              <li>Asesoría personalizada sobre opciones de jubilación</li>
+              <li>Análisis de estado de cuenta IMSS (sector privado)</li>
+              <li>Análisis de estado de cuenta ISSSTE (sector público)</li>
+              <li>Evaluación de elegibilidad para pensión IMSS o jubilación ISSSTE</li>
+              <li>Proyecciones de pensión IMSS o jubilación ISSSTE bajo diferentes estrategias</li>
+              <li>Asesoría sobre opciones de jubilación en ambos sistemas</li>
+              <li>Asesoría sobre Convenio de Portabilidad (para clientes con historial en ambos sistemas)</li>
               <li>Contenido educativo (blog, documentos, guías)</li>
             </ul>
             <p className="text-sm bg-yellow-50 p-4 rounded border-l-4 border-yellow-600 mt-4">
               <strong>⚠️ Importante:</strong> Estos servicios son de naturaleza <strong>educativa y asesora</strong>, NO constituyen
-              asesoría legal, contable o financiera oficial. El Consultor es especialista en normativa de pensiones, no abogado ni contador.
+              asesoría legal, contable o financiera oficial. El Consultor es especialista en normativa de pensiones y jubilaciones, no abogado ni contador.
             </p>
           </section>
 
@@ -62,22 +71,51 @@ export default function TerminosPage() {
             <ul className="list-disc pl-6 space-y-2 mt-4">
               <li>
                 Los análisis y proyecciones son estimaciones basadas en normativa vigente y NO son garantías
-                de pensión del IMSS ni de ninguna institución
+                de pensión IMSS ni de jubilación ISSSTE ni de ninguna institución
               </li>
               <li>
-                La información puede cambiar por reformas legislativas, cambios en UMA, políticas del IMSS
+                La información puede cambiar por reformas legislativas, cambios en UMA, políticas del IMSS o ISSSTE,
                 o decisiones de autoridades competentes
               </li>
               <li>
-                El resultado final de cualquier trámite ante IMSS depende exclusivamente de la evaluación
+                El resultado final de cualquier trámite ante IMSS o ISSSTE depende exclusivamente de la evaluación
                 y decisión de esa institución
               </li>
               <li>
                 La acreditación de períodos laborales sin documentación NO está garantizada y requiere
-                validación legal por el IMSS
+                validación legal por IMSS o ISSSTE según corresponda
               </li>
               <li>
-                El Cliente es responsable de validar toda información con el IMSS antes de tomar decisiones
+                El Cliente es responsable de validar toda información directamente con IMSS o ISSSTE antes de tomar decisiones
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">2.1 Convenio de Portabilidad (IMSS ↔ ISSSTE)</h2>
+            <p>
+              Algunos Clientes pueden haber cotizado en <strong>ambos sistemas</strong> (IMSS e ISSSTE) durante su historia laboral.
+              México cuenta con un <strong>Convenio de Portabilidad de Derechos</strong> que permite unificar el tiempo de servicio
+              entre ambas instituciones para cumplir requisitos de pensión o jubilación.
+            </p>
+            <p className="mt-4">
+              <strong>El Cliente reconoce que:</strong>
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mt-4">
+              <li>
+                Si ha cotizado en IMSS e ISSSTE, la asesoría puede incluir análisis de Portabilidad para maximizar pensión/jubilación
+              </li>
+              <li>
+                El procedimiento de Portabilidad es complejo y debe ser validado directamente con IMSS e ISSSTE
+              </li>
+              <li>
+                El Consultor asesora sobre la estrategia, pero la aprobación final depende de ambas instituciones
+              </li>
+              <li>
+                Cada institución tiene requisitos y procedimientos independientes; no hay garantía de aprobación
+              </li>
+              <li>
+                El Cliente debe solicitar directamente los trámites de Portabilidad en las sedes de IMSS e ISSSTE
               </li>
             </ul>
           </section>
@@ -88,11 +126,11 @@ export default function TerminosPage() {
               El Consultor y la Consultoría NO serán responsables por:
             </p>
             <ul className="list-disc pl-6 space-y-2 mt-4">
-              <li>Errores de cálculo o proyecciones de pensión</li>
+              <li>Errores de cálculo o proyecciones de pensión IMSS o jubilación ISSSTE</li>
               <li>Cambios en normativa no reflejados en la asesoría</li>
               <li>Decisiones del Cliente basadas únicamente en la información proporcionada</li>
-              <li>Rechazos de IMSS en procesos de acreditación de períodos</li>
-              <li>Cambios en UMA, tasas, políticas de pensión o decisiones administrativas</li>
+              <li>Rechazos de IMSS o ISSSTE en procesos de acreditación de períodos o Portabilidad</li>
+              <li>Cambios en UMA, tasas, políticas de pensión IMSS o jubilación ISSSTE, o decisiones administrativas</li>
               <li>Pérdida de oportunidades o daños por inactividad del Cliente</li>
               <li>Terceros que utilicen información proporcionada sin consentimiento</li>
             </ul>
@@ -135,7 +173,7 @@ export default function TerminosPage() {
             </p>
             <ul className="list-disc pl-6 space-y-2 mt-4">
               <li>Descargar y utilizar contenido educativo para uso personal</li>
-              <li>Utilizar análisis personalizados recibidos como parte de la asesoría para sus trámites ante IMSS</li>
+              <li>Utilizar análisis personalizados recibidos como parte de la asesoría para sus trámites ante IMSS o ISSSTE</li>
             </ul>
             <p className="mt-4">
               El Cliente <strong>NO</strong> puede:
@@ -205,7 +243,7 @@ export default function TerminosPage() {
               El Cliente reconoce que:
             </p>
             <ul className="list-disc pl-6 space-y-2 mt-4">
-              <li>Debe validar información con el IMSS antes de actuar</li>
+              <li>Debe validar información con IMSS o ISSSTE según corresponda antes de actuar</li>
               <li>Los casos prácticos son ilustrativos, no representan su situación específica</li>
               <li>Normativa puede cambiar; el contenido se actualiza periódicamente pero puede tener retrasos</li>
               <li>Debe consultar con profesionales certificados para asesoría definitiva</li>
