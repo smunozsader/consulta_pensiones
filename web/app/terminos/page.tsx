@@ -42,6 +42,7 @@ export default function TerminosPage() {
             </p>
             <ul className="list-disc pl-6 space-y-2 my-4">
               <li>Análisis de estado de cuenta IMSS</li>
+              <li>Análisis de estado de cuenta ISSSTE</li>
               <li>Evaluación de elegibilidad para pensión</li>
               <li>Proyecciones de pensión bajo diferentes estrategias</li>
               <li>Asesoría personalizada sobre opciones de jubilación</li>
