@@ -1,5 +1,5 @@
 import { database } from './firebase';
-import { ref, push, set, query, orderByChild, equalTo, get } from 'firebase/database';
+import { ref, push, set, query, orderByChild, equalTo, get, update } from 'firebase/database';
 
 export interface SubscriberData {
   nombre: string;
@@ -10,6 +10,37 @@ export interface SubscriberData {
   privacyAccepted: boolean;
   marketingAccepted: boolean;
   accessToken: string;
+}
+
+export interface ServiceRequest {
+  requestId: string;
+  subscriberId?: string;
+  serviceName: 'estado-cuenta' | 'modalidad-40' | 'solicitud-pension';
+  status: 'pending' | 'in-progress' | 'completed' | 'rejected';
+
+  nombre: string;
+  email: string;
+  telefono: string;
+  curp: string;
+  nss?: string;
+
+  tieneEstadoCuenta?: boolean;
+  edadActual?: number;
+  salarioDiario?: number;
+
+  createdAt: string;
+  updatedAt: string;
+  price: number;
+
+  notes?: string;
+  expectedCompletionDate?: string;
+
+  authorizesRepresentation: boolean;
+
+  stripePaymentIntentId?: string;
+  paymentStatus: 'pending' | 'completed' | 'failed';
+  paymentAmount: number;
+  paymentDate?: string;
 }
 
 export async function saveSubscriber(data: SubscriberData) {
@@ -85,5 +116,108 @@ export async function verifyAccessToken(token: string) {
   } catch (error) {
     console.error('Error verifying access token:', error);
     return { valid: false, subscriber: null };
+  }
+}
+
+export async function saveServiceRequest(data: Omit<ServiceRequest, 'requestId'>) {
+  try {
+    const serviceRequestsRef = ref(database, 'service-requests');
+    const newRequestRef = push(serviceRequestsRef);
+    const requestId = newRequestRef.key || '';
+
+    const now = new Date().toISOString();
+
+    await set(newRequestRef, {
+      requestId,
+      serviceName: data.serviceName,
+      status: 'pending',
+      nombre: data.nombre,
+      email: data.email,
+      telefono: data.telefono,
+      curp: data.curp,
+      nss: data.nss || null,
+      tieneEstadoCuenta: data.tieneEstadoCuenta || false,
+      edadActual: data.edadActual || null,
+      salarioDiario: data.salarioDiario || null,
+      createdAt: now,
+      updatedAt: now,
+      price: data.price,
+      notes: '',
+      expectedCompletionDate: null,
+      authorizesRepresentation: data.authorizesRepresentation,
+      stripePaymentIntentId: data.stripePaymentIntentId || null,
+      paymentStatus: data.paymentStatus || 'pending',
+      paymentAmount: data.paymentAmount,
+      paymentDate: data.paymentDate || null,
+      subscriberId: data.subscriberId || null,
+    });
+
+    return { success: true, requestId };
+  } catch (error) {
+    console.error('Error saving service request:', error);
+    throw error;
+  }
+}
+
+export async function updateServiceRequest(
+  requestId: string,
+  updates: Partial<ServiceRequest>
+) {
+  try {
+    const requestRef = ref(database, `service-requests/${requestId}`);
+
+    const updateData = {
+      ...updates,
+      updatedAt: new Date().toISOString(),
+    };
+
+    await update(requestRef, updateData);
+
+    return { success: true };
+  } catch (error) {
+    console.error('Error updating service request:', error);
+    throw error;
+  }
+}
+
+export async function getServiceRequest(requestId: string) {
+  try {
+    const requestRef = ref(database, `service-requests/${requestId}`);
+    const snapshot = await get(requestRef);
+
+    if (!snapshot.exists()) {
+      return { success: false, data: null };
+    }
+
+    return { success: true, data: snapshot.val() };
+  } catch (error) {
+    console.error('Error getting service request:', error);
+    return { success: false, data: null };
+  }
+}
+
+export async function getClientServiceRequests(subscriberId: string) {
+  try {
+    const serviceRequestsRef = ref(database, 'service-requests');
+    const clientRequestsQuery = query(
+      serviceRequestsRef,
+      orderByChild('subscriberId'),
+      equalTo(subscriberId)
+    );
+    const snapshot = await get(clientRequestsQuery);
+
+    if (!snapshot.exists()) {
+      return { success: true, data: [] };
+    }
+
+    const requests: ServiceRequest[] = [];
+    snapshot.forEach((childSnapshot) => {
+      requests.push(childSnapshot.val());
+    });
+
+    return { success: true, data: requests };
+  } catch (error) {
+    console.error('Error getting client service requests:', error);
+    return { success: false, data: [] };
   }
 }
