@@ -1,12 +1,23 @@
 'use client';
 
-import { useState } from 'react';
-import { loadStripe } from '@stripe/js';
+import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { Elements } from '@stripe/react-stripe-js';
 import ServiceRequestForm from './ServiceRequestForm';
-import StripePaymentForm from './StripePaymentForm';
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
+const StripePaymentForm = dynamic(() => import('./StripePaymentForm'), {
+  ssr: false,
+});
+
+let stripePromise: any = null;
+
+const getStripe = async () => {
+  if (!stripePromise) {
+    const { loadStripe } = await import('@stripe/js');
+    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
+  }
+  return stripePromise;
+};
 
 interface ServiceRequestModalProps {
   isOpen: boolean;
@@ -30,23 +41,29 @@ export default function ServiceRequestModal({
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [stripe, setStripe] = useState<any>(null);
+
+  useEffect(() => {
+    if (isOpen && !stripe) {
+      getStripe().then(setStripe);
+    }
+  }, [isOpen, stripe]);
 
   const handleFormSubmit = async (data: any) => {
     setLoading(true);
     setError(null);
 
     try {
-      // Call /api/payment to create PaymentIntent
       const response = await fetch('/api/payment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          amount: price * 100, // Convert to cents
+          amount: price * 100,
           serviceId,
           serviceName,
-          ...data, // Include form data as metadata
+          ...data,
         }),
       });
 
@@ -71,7 +88,6 @@ export default function ServiceRequestModal({
 
   const handlePaymentError = (errorMessage: string) => {
     setError(errorMessage);
-    // Stay on payment form to allow retry
   };
 
   const handleClose = () => {
@@ -86,16 +102,13 @@ export default function ServiceRequestModal({
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
-      {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
         onClick={handleClose}
       />
 
-      {/* Modal */}
       <div className="relative min-h-screen flex items-center justify-center p-4">
         <div className="relative bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-          {/* Header */}
           <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center">
             <h2 className="text-2xl font-bold text-gray-900">
               {stage === 'form' && `Solicitar: ${serviceName}`}
@@ -112,7 +125,6 @@ export default function ServiceRequestModal({
             )}
           </div>
 
-          {/* Content */}
           <div className="p-6">
             {stage === 'form' && (
               <ServiceRequestForm
@@ -122,9 +134,9 @@ export default function ServiceRequestModal({
               />
             )}
 
-            {stage === 'payment' && clientSecret && (
+            {stage === 'payment' && clientSecret && stripe && (
               <Elements
-                stripe={stripePromise}
+                stripe={stripe}
                 options={{
                   clientSecret,
                   appearance: {
