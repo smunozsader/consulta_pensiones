@@ -93,26 +93,6 @@ export default function Home() {
       {/* Hero Section - Figma Design */}
       <Hero />
 
-      {/* Legal Disclaimer */}
-      <section className="bg-yellow-50 py-8 mt-0">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
-            <div className="flex items-start">
-              <span className="text-xl mr-3">⚠️</span>
-              <div>
-                <p className="text-sm text-yellow-800">
-                  <strong>Estimativo legal:</strong> Esta información se basa en la Ley del Seguro Social vigente (Mayo 2026).
-                  Valida cada caso con IMSS antes de tomar decisiones.{' '}
-                  <a href="/privacidad" className="underline font-semibold hover:text-yellow-900">
-                    Ver detalles legales
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Social Proof */}
       <section className="bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
