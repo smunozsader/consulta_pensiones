@@ -1,3 +1,5 @@
+'use client';
+
 import { Calculator, FileText, Calendar } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import Link from 'next/link';
