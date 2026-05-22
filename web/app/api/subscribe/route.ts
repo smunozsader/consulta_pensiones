@@ -1,8 +1,6 @@
 import { saveSubscriber } from '@/lib/firebase-service';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
   try {
     const { email } = await request.json();
@@ -17,7 +15,8 @@ export async function POST(request: Request) {
     // Save to Firebase
     await saveSubscriber(email);
 
-    // Send welcome email via Resend
+    // Send welcome email via Resend (initialize at runtime)
+    const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
       from: 'mi.consultor.pensiones@gmail.com',
       to: email,
