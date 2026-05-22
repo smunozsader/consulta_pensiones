@@ -57,7 +57,7 @@ export default function PrivacidadPage() {
               <li>Eliminable a solicitud del usuario</li>
             </ul>
             <p>
-              Para solicitar eliminación de tu email, contáctanos: smunozam@gmail.com
+              Para solicitar eliminación de tu email, contáctanos: mi.consultor.pensiones@gmail.com
             </p>
           </section>
 
@@ -89,7 +89,7 @@ export default function PrivacidadPage() {
             </ul>
             <p>
               Sin embargo, ningún sitio es 100% seguro. Si descubres una vulnerabilidad,
-              contáctanos inmediatamente en smunozam@gmail.com.
+              contáctanos inmediatamente en mi.consultor.pensiones@gmail.com.
             </p>
           </section>
 
@@ -106,7 +106,7 @@ export default function PrivacidadPage() {
               <li><strong>Oposición</strong> a ciertos usos</li>
             </ul>
             <p>
-              Para ejercer estos derechos, escribe a: smunozam@gmail.com
+              Para ejercer estos derechos, escribe a: mi.consultor.pensiones@gmail.com
             </p>
           </section>
 
@@ -123,23 +123,55 @@ export default function PrivacidadPage() {
             <p>
               Para preguntas sobre privacidad:
               <br />
-              <strong>Email:</strong> smunozam@gmail.com
+              <strong>Email:</strong> mi.consultor.pensiones@gmail.com
               <br />
-              <strong>WhatsApp:</strong> +52 1 55 1234 5678
+              <strong>WhatsApp:</strong> +52 999 200 5550
             </p>
           </section>
 
           <div className="bg-blue-50 border border-blue-200 p-6 rounded-lg mt-8">
             <p className="text-sm font-semibold text-blue-900">
-              Última actualización: Mayo 20, 2026
+              Última actualización: Mayo 22, 2026
             </p>
           </div>
         </div>
       </div>
 
       <footer className="bg-gray-900 text-white py-12 mt-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-gray-400">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h4 className="font-bold mb-4">Consultoría</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><Link href="/about" className="hover:text-white">Acerca de</Link></li>
+                <li><Link href="/casos" className="hover:text-white">Casos de éxito</Link></li>
+                <li><a href="https://wa.me/529992005550" className="hover:text-white">Agendar consulta</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Recursos</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
+                <li><a href="#form" className="hover:text-white">Descargar guía</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Legal</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><Link href="/privacidad" className="hover:text-white">Privacidad</Link></li>
+                <li><Link href="/terminos" className="hover:text-white">Términos</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Contacto</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li>Email: mi.consultor.pensiones@gmail.com</li>
+                <li>WhatsApp: +52 999 200 5550</li>
+                <li>Mérida, Yucatán</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
             <p>&copy; 2026 Consultoría Integral de Pensiones. Todos los derechos reservados.</p>
           </div>
         </div>
