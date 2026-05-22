@@ -1,20 +1,19 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
 import { Elements } from '@stripe/react-stripe-js';
 import ServiceRequestForm from './ServiceRequestForm';
-
-const StripePaymentForm = dynamic(() => import('./StripePaymentForm'), {
-  ssr: false,
-});
+import StripePaymentForm from './StripePaymentForm';
 
 let stripePromise: any = null;
 
-const getStripe = async () => {
-  if (!stripePromise) {
-    const { loadStripe } = await import('@stripe/js');
-    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
+const getStripe = () => {
+  if (!stripePromise && typeof window !== 'undefined') {
+    // Stripe is loaded from CDN in root layout
+    const stripe = (window as any).Stripe;
+    if (stripe) {
+      stripePromise = stripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
+    }
   }
   return stripePromise;
 };
@@ -45,7 +44,16 @@ export default function ServiceRequestModal({
 
   useEffect(() => {
     if (isOpen && !stripe) {
-      getStripe().then(setStripe);
+      // Wait for Stripe to be loaded from CDN
+      const checkStripe = () => {
+        const stripeInstance = getStripe();
+        if (stripeInstance) {
+          setStripe(stripeInstance);
+        } else {
+          setTimeout(checkStripe, 100);
+        }
+      };
+      checkStripe();
     }
   }, [isOpen, stripe]);
 

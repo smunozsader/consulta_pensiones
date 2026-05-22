@@ -48,6 +48,12 @@ export default function RootLayout({
         <link rel="canonical" href="https://pensiones-consulting.mx" />
         <link rel="icon" href="/favicon.ico" />
 
+        {/* Stripe.js CDN */}
+        <Script
+          src="https://js.stripe.com/v3/"
+          strategy="beforeInteractive"
+        />
+
         {/* Google Analytics */}
         {/* TODO: Reemplaza G-XXXXXXXXXX con tu ID real de Google Analytics */}
         {/* Para obtenerlo: Google Analytics → Admin → Data Streams → Tu sitio → Measurement ID (formato: G-XXXXXXX) */}
