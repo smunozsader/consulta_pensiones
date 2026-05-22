@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Footer from '@/app/components/Footer';
 
 export default function AboutPage() {
   return (
@@ -12,7 +13,7 @@ export default function AboutPage() {
             Consultoría de Pensiones
           </Link>
           <a
-            href="https://wa.me/5215512345678"
+            href="https://wa.me/529992005550"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium"
@@ -132,7 +133,7 @@ export default function AboutPage() {
               sin compromisos y definiremos juntos la mejor estrategia para ti.
             </p>
             <a
-              href="https://wa.me/5215512345678"
+              href="https://wa.me/529992005550"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold inline-block"
@@ -143,14 +144,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 mt-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-gray-400">
-            <p>&copy; 2026 Consultoría Integral de Pensiones. Todos los derechos reservados.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

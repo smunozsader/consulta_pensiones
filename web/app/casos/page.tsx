@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import LegalDisclaimer from '../components/LegalDisclaimer';
+import Footer from '@/app/components/Footer';
 
 const cases = [
   {
@@ -56,7 +57,7 @@ export default function CasosPage() {
             Consultoría de Pensiones
           </Link>
           <a
-            href="https://wa.me/5215512345678"
+            href="https://wa.me/529992005550"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium"
@@ -132,7 +133,7 @@ export default function CasosPage() {
             Obtén una evaluación personalizada de tu caso. Sin compromiso.
           </p>
           <a
-            href="https://wa.me/5215512345678"
+            href="https://wa.me/529992005550"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold inline-block"
@@ -142,14 +143,7 @@ export default function CasosPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 mt-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-gray-400">
-            <p>&copy; 2026 Consultoría Integral de Pensiones. Todos los derechos reservados.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

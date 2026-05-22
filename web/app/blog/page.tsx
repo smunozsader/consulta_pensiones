@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import LegalDisclaimer from '../components/LegalDisclaimer';
+import Footer from '@/app/components/Footer';
 
 const blogPosts = [
   {
@@ -109,14 +110,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 mt-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-gray-400">
-            <p>&copy; 2026 Consultoría Integral de Pensiones. Todos los derechos reservados.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
