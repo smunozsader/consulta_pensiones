@@ -19,13 +19,6 @@ export default function ElegibilidadLey73() {
         <article className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-800 prose-li:text-gray-800">
           <h1>Elegibilidad Ley 73: ¿Quién tiene derecho a pensión?</h1>
 
-          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded my-6">
-            <p className="text-sm text-yellow-800">
-              <strong>⚠️ Estimativo legal:</strong> Esta información se basa en la Ley del Seguro Social vigente (Mayo 2026).
-              Valida cada caso con IMSS antes de tomar decisiones.
-            </p>
-          </div>
-
           <h2>Resumen Ejecutivo</h2>
           <p>
             La elegibilidad para pensión bajo Ley 73 requiere cumplir requisitos claros: edad mínima, semanas cotizadas, y
