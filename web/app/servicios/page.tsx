@@ -3,13 +3,11 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import Footer from '@/app/components/Footer';
-// TODO: Import ServiceRequestModal once created
-// import ServiceRequestModal from '@/app/components/ServiceRequestModal';
+import ServiceRequestModal from '@/app/components/ServiceRequestModal';
 
 export default function ServiciosPage() {
-  // TODO: Uncomment when ServiceRequestModal is created
-  // const [selectedService, setSelectedService] = useState<string | null>(null);
-  // const [modalOpen, setModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<any | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const services = [
     {
@@ -106,14 +104,12 @@ export default function ServiciosPage() {
 
               <button
                 onClick={() => {
-                  // TODO: Uncomment when ServiceRequestModal is created
-                  // setSelectedService(service.id);
-                  // setModalOpen(true);
-                  alert('Coming soon! Modal will be available tomorrow.');
+                  setSelectedService(service);
+                  setModalOpen(true);
                 }}
                 className="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition"
               >
-                Solicitar Servicio (Coming Soon)
+                Solicitar Servicio
               </button>
             </div>
           ))}
@@ -156,13 +152,15 @@ export default function ServiciosPage() {
         </div>
       </main>
 
-      {/* TODO: Uncomment when ServiceRequestModal is created
-      <ServiceRequestModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        serviceName={selectedService || ''}
-      />
-      */}
+      {selectedService && (
+        <ServiceRequestModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          serviceName={selectedService.name}
+          serviceId={selectedService.id}
+          price={selectedService.price}
+        />
+      )}
 
       <Footer />
     </div>
