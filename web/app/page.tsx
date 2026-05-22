@@ -3,26 +3,42 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import Hero from './components/Hero';
+import ConsentCheckboxes from './components/ConsentCheckboxes';
 
 export default function Home() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [marketingAccepted, setMarketingAccepted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validar que privacidad sea aceptada
+    if (!privacyAccepted) {
+      alert('Debes aceptar los Términos y Condiciones y el Aviso de Privacidad para continuar.');
+      return;
+    }
+
     setLoading(true);
 
     try {
       const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          email,
+          privacyAccepted,
+          marketingAccepted
+        }),
       });
 
       if (response.ok) {
         setSubmitted(true);
         setEmail('');
+        setPrivacyAccepted(false);
+        setMarketingAccepted(false);
         setTimeout(() => setSubmitted(false), 3000);
       }
     } catch (err) {
@@ -120,10 +136,21 @@ export default function Home() {
                 className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
               />
             </div>
+
+            {/* Consent Checkboxes */}
+            <div className="mb-4 bg-white/10 p-4 rounded-lg">
+              <ConsentCheckboxes
+                privacyAccepted={privacyAccepted}
+                setPrivacyAccepted={setPrivacyAccepted}
+                marketingAccepted={marketingAccepted}
+                setMarketingAccepted={setMarketingAccepted}
+              />
+            </div>
+
             <button
               type="submit"
-              disabled={loading}
-              className="w-full bg-white text-blue-600 font-bold py-3 rounded-lg hover:bg-blue-50 transition disabled:opacity-50"
+              disabled={loading || !privacyAccepted}
+              className="w-full bg-white text-blue-600 font-bold py-3 rounded-lg hover:bg-blue-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? 'Enviando...' : 'Recibir Guía Gratis'}
             </button>
