@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import LegalDisclaimer from '../components/LegalDisclaimer';
 import Footer from '@/app/components/Footer';
-import GatedContent from '@/app/components/GatedContent';
+import GatedContentBoundary from '@/app/components/GatedContentBoundary';
 
 const cases = [
   {
@@ -83,7 +83,7 @@ export default function CasosPage() {
         <LegalDisclaimer variant="compact" />
       </section>
 
-      <GatedContent>
+      <GatedContentBoundary>
         {/* Cases Grid */}
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid md:grid-cols-2 gap-8">
@@ -144,7 +144,7 @@ export default function CasosPage() {
           </a>
         </div>
         </section>
-      </GatedContent>
+      </GatedContentBoundary>
 
       <Footer />
     </div>

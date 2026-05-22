@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import Footer from '@/app/components/Footer';
-import GatedContent from '@/app/components/GatedContent';
+import GatedContentBoundary from '@/app/components/GatedContentBoundary';
 
 export default function Modalidad40() {
   return (
@@ -14,7 +14,7 @@ export default function Modalidad40() {
         </div>
       </header>
 
-      <GatedContent><main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <GatedContentBoundary><main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <Link href="/blog" className="text-blue-600 hover:text-blue-800 mb-6 inline-block">
           ← Volver al blog
         </Link>
@@ -108,7 +108,7 @@ export default function Modalidad40() {
             </a>
           </div>
         </article>
-      </main></GatedContent>
+      </main></GatedContentBoundary>
 
       <Footer />
     </div>

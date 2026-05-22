@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Footer from '@/app/components/Footer';
-import GatedContent from '@/app/components/GatedContent';
+import GatedContentBoundary from '@/app/components/GatedContentBoundary';
 
 export default function ElegibilidadLey73() {
   return (
@@ -15,7 +15,7 @@ export default function ElegibilidadLey73() {
         </div>
       </header>
 
-      <GatedContent>
+      <GatedContentBoundary>
         <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <Link href="/blog" className="text-blue-600 hover:text-blue-800 mb-6 inline-block">
             ← Volver al blog
@@ -103,7 +103,7 @@ export default function ElegibilidadLey73() {
           </div>
         </article>
         </main>
-      </GatedContent>
+      </GatedContentBoundary>
 
       <Footer />
     </div>

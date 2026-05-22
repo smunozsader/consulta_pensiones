@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import LegalDisclaimer from '../components/LegalDisclaimer';
 import Footer from '@/app/components/Footer';
-import GatedContent from '../components/GatedContent';
+import GatedContentBoundary from '@/app/components/GatedContentBoundary';
 
 const blogPosts = [
   {
@@ -70,7 +70,7 @@ export default function BlogPage() {
         </div>
       </header>
 
-      <GatedContent>
+      <GatedContentBoundary>
         {/* Blog Content */}
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="mb-12">
@@ -111,7 +111,7 @@ export default function BlogPage() {
             ))}
           </div>
         </section>
-      </GatedContent>
+      </GatedContentBoundary>
 
       <Footer />
     </div>

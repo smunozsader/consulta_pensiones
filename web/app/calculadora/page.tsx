@@ -5,7 +5,7 @@ import { useState, useMemo } from 'react';
 import { CalculadoraModalidad40 } from '@/lib/calculadora';
 import LegalDisclaimer from '../components/LegalDisclaimer';
 import Footer from '@/app/components/Footer';
-import GatedContent from '@/app/components/GatedContent';
+import GatedContentBoundary from '@/app/components/GatedContentBoundary';
 
 interface CasoPractico {
   nombre: string;
@@ -99,7 +99,7 @@ export default function CalculadoraPage() {
         </div>
       </header>
 
-      <GatedContent>
+      <GatedContentBoundary>
         {/* Main Content */}
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -367,7 +367,7 @@ export default function CalculadoraPage() {
           </a>
         </div>
         </div>
-      </GatedContent>
+      </GatedContentBoundary>
 
       <Footer />
     </div>
