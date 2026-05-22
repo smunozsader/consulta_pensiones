@@ -16,7 +16,7 @@ export default function Modalidad40() {
           ← Volver al blog
         </Link>
 
-        <article className="prose prose-lg max-w-none">
+        <article className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-800 prose-li:text-gray-800">
           <h1>Modalidad 40: La Estrategia de Cotización Voluntaria</h1>
 
           <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded my-6">
