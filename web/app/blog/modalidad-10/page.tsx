@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Footer from '@/app/components/Footer';
 
 export default function Modalidad10() {
   return (
@@ -106,6 +107,8 @@ export default function Modalidad10() {
           </div>
         </article>
       </main>
+
+      <Footer />
     </div>
   );
 }

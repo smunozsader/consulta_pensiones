@@ -3,22 +3,21 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <h4 className="font-bold mb-4">Consultoría</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li><Link href="/about" className="hover:text-white">Acerca de</Link></li>
               <li><Link href="/casos" className="hover:text-white">Casos de éxito</Link></li>
-              <li><a href="https://wa.me/5215512345678" className="hover:text-white">Agendar consulta</a></li>
+              <li><a href="https://wa.me/529992005550" className="hover:text-white">Agendar consulta</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-bold mb-4">Recursos</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-              <li><Link href="/calculadora" className="hover:text-white">Calculadora</Link></li>
-              <li><a href="/#form" className="hover:text-white">Descargar guía</a></li>
+              <li><a href="#form" className="hover:text-white">Descargar guía</a></li>
             </ul>
           </div>
           <div>
@@ -31,9 +30,9 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-4">Contacto</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li>Email: smunozam@gmail.com</li>
-              <li>WhatsApp: +52 1 55 1234 5678</li>
-              <li>Ciudad de México</li>
+              <li>Email: mi.consultor.pensiones@gmail.com</li>
+              <li>WhatsApp: +52 999 200 5550</li>
+              <li>Mérida, Yucatán</li>
             </ul>
           </div>
         </div>

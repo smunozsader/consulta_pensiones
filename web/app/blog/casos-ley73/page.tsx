@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Footer from '@/app/components/Footer';
 
 export default function CasosLey73() {
   return (
@@ -187,6 +188,8 @@ export default function CasosLey73() {
           </div>
         </article>
       </main>
+
+      <Footer />
     </div>
   );
 }
