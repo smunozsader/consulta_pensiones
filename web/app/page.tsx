@@ -140,127 +140,129 @@ export default function Home() {
       </section>
 
       {/* CTA Form Section */}
-      <section id="form" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg p-12 text-white">
-          <h2 className="text-3xl font-bold mb-4">
-            Accede a Contenido Educativo Completo
-          </h2>
-          <p className="text-lg mb-8 text-blue-100">
-            Registra tus datos para acceder a artículos, calculadora de pensiones y casos de éxito.
-            Te enviaremos un link de acceso a tu correo electrónico.
-          </p>
+      <section id="form" className="bg-gradient-to-r from-blue-600 to-blue-800 py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-lg p-8 md:p-12 shadow-xl">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              Accede a Contenido Educativo Completo
+            </h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Registra tus datos para acceder a artículos, calculadora de pensiones y casos de éxito.
+              Te enviaremos un link de acceso a tu correo electrónico.
+            </p>
 
-          <form onSubmit={handleSubmit} className="max-w-2xl">
-            {/* Nombre */}
-            <div className="mb-4">
-              <label className="block text-white text-sm font-medium mb-2">
-                Nombre completo <span className="text-red-300">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Tu nombre"
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-                required
-                className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
-              />
-            </div>
-
-            {/* Teléfono */}
-            <div className="mb-4">
-              <label className="block text-white text-sm font-medium mb-2">
-                WhatsApp <span className="text-red-300">*</span>
-              </label>
-              <input
-                type="tel"
-                placeholder="+52 999 200 5550"
-                value={telefono}
-                onChange={(e) => setTelefono(e.target.value)}
-                required
-                className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
-              />
-            </div>
-
-            {/* Correo */}
-            <div className="mb-4">
-              <label className="block text-white text-sm font-medium mb-2">
-                Correo electrónico <span className="text-red-300">*</span>
-              </label>
-              <input
-                type="email"
-                placeholder="tu@correo.com"
-                value={correo}
-                onChange={(e) => setCorreo(e.target.value)}
-                required
-                className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
-              />
-            </div>
-
-            {/* NSS y Semanas en dos columnas */}
-            <div className="grid grid-cols-2 gap-4 mb-4">
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  NSS <span className="text-xs text-blue-100">(opcional)</span>
+            <form onSubmit={handleSubmit}>
+              {/* Nombre */}
+              <div className="mb-6">
+                <label className="block text-gray-900 text-sm font-semibold mb-2">
+                  Nombre completo <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
-                  placeholder="00000000000"
-                  value={nss}
-                  onChange={(e) => setNss(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+                  placeholder="Tu nombre"
+                  value={nombre}
+                  onChange={(e) => setNombre(e.target.value)}
+                  required
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
 
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  Semanas cotizadas <span className="text-xs text-blue-100">(opcional)</span>
+              {/* Teléfono */}
+              <div className="mb-6">
+                <label className="block text-gray-900 text-sm font-semibold mb-2">
+                  WhatsApp <span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="number"
-                  min="0"
-                  max="750"
-                  placeholder="500"
-                  value={semanas}
-                  onChange={(e) => setSemanas(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+                  type="tel"
+                  placeholder="+52 999 200 5550"
+                  value={telefono}
+                  onChange={(e) => setTelefono(e.target.value)}
+                  required
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
-            </div>
 
-            {/* Consent Checkboxes */}
-            <div className="mb-4 bg-white/15 p-4 rounded-lg">
-              <ConsentCheckboxes
-                privacyAccepted={privacyAccepted}
-                setPrivacyAccepted={setPrivacyAccepted}
-                marketingAccepted={marketingAccepted}
-                setMarketingAccepted={setMarketingAccepted}
-                darkMode={true}
-              />
-            </div>
+              {/* Correo */}
+              <div className="mb-6">
+                <label className="block text-gray-900 text-sm font-semibold mb-2">
+                  Correo electrónico <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="tu@correo.com"
+                  value={correo}
+                  onChange={(e) => setCorreo(e.target.value)}
+                  required
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
 
-            {/* Error message */}
-            {error && (
-              <div className="mb-4 bg-red-500/20 border border-red-300 rounded-lg p-3">
-                <p className="text-sm text-red-100">{error}</p>
+              {/* NSS y Semanas en dos columnas */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div>
+                  <label className="block text-gray-900 text-sm font-semibold mb-2">
+                    NSS <span className="text-gray-500 font-normal">(opcional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="00000000000"
+                    value={nss}
+                    onChange={(e) => setNss(e.target.value)}
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-gray-900 text-sm font-semibold mb-2">
+                    Semanas cotizadas <span className="text-gray-500 font-normal">(opcional)</span>
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    max="750"
+                    placeholder="500"
+                    value={semanas}
+                    onChange={(e) => setSemanas(e.target.value)}
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+              </div>
+
+              {/* Consent Checkboxes */}
+              <div className="mb-6 bg-blue-50 p-4 rounded-lg border border-blue-200">
+                <ConsentCheckboxes
+                  privacyAccepted={privacyAccepted}
+                  setPrivacyAccepted={setPrivacyAccepted}
+                  marketingAccepted={marketingAccepted}
+                  setMarketingAccepted={setMarketingAccepted}
+                  darkMode={false}
+                />
+              </div>
+
+              {/* Error message */}
+              {error && (
+                <div className="mb-6 bg-red-50 border border-red-300 rounded-lg p-4">
+                  <p className="text-sm text-red-800">{error}</p>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={loading || !privacyAccepted}
+                className="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? 'Procesando...' : 'Recibir Acceso'}
+              </button>
+            </form>
+
+            {submitted && (
+              <div className="mt-4 bg-green-50 border border-green-300 rounded-lg p-4">
+                <p className="text-green-800 text-center">
+                  ✓ Revisa tu correo. Te enviaremos el link de acceso en los próximos minutos.
+                </p>
               </div>
             )}
-
-            <button
-              type="submit"
-              disabled={loading || !privacyAccepted}
-              className="w-full bg-white text-blue-600 font-bold py-3 rounded-lg hover:bg-blue-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? 'Procesando...' : 'Recibir Acceso'}
-            </button>
-          </form>
-
-          {submitted && (
-            <div className="mt-4 bg-green-500/20 border border-green-300 rounded-lg p-4">
-              <p className="text-green-100 text-center">
-                ✓ Revisa tu correo. Te enviaremos el link de acceso en los próximos minutos.
-              </p>
-            </div>
-          )}
+          </div>
         </div>
       </section>
 
