@@ -110,13 +110,14 @@ export default function Home() {
 
           <form onSubmit={handleSubmit} className="max-w-md">
             <div className="mb-4">
+              <label className="block text-white text-sm font-medium mb-2">Tu correo electrónico</label>
               <input
                 type="email"
-                placeholder="Tu correo electrónico"
+                placeholder="ejemplo@correo.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
               />
             </div>
             <button
