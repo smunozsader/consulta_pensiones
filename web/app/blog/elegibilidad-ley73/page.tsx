@@ -16,7 +16,7 @@ export default function ElegibilidadLey73() {
           ← Volver al blog
         </Link>
 
-        <article className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-800 prose-li:text-gray-800">
+        <article className="prose prose-lg max-w-none" style={{color: '#1f2937'}}>
           <h1>Elegibilidad Ley 73: ¿Quién tiene derecho a pensión?</h1>
 
           <h2>Resumen Ejecutivo</h2>
