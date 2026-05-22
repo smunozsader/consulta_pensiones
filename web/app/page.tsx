@@ -6,18 +6,30 @@ import Hero from './components/Hero';
 import ConsentCheckboxes from './components/ConsentCheckboxes';
 
 export default function Home() {
-  const [email, setEmail] = useState('');
+  const [nombre, setNombre] = useState('');
+  const [telefono, setTelefono] = useState('');
+  const [correo, setCorreo] = useState('');
+  const [nss, setNss] = useState('');
+  const [semanas, setSemanas] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [marketingAccepted, setMarketingAccepted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
 
     // Validar que privacidad sea aceptada
     if (!privacyAccepted) {
-      alert('Debes aceptar los Términos y Condiciones y el Aviso de Privacidad para continuar.');
+      setError('Debes aceptar los Términos y Condiciones y el Aviso de Privacidad para continuar.');
+      return;
+    }
+
+    // Validar campos requeridos
+    if (!nombre.trim() || !telefono.trim() || !correo.trim()) {
+      setError('Por favor completa todos los campos requeridos');
       return;
     }
 
@@ -28,21 +40,34 @@ export default function Home() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          email,
+          nombre: nombre.trim(),
+          telefono: telefono.trim(),
+          correo: correo.trim(),
+          nss: nss.trim() || undefined,
+          semanas_cotizadas: semanas ? parseInt(semanas) : undefined,
           privacyAccepted,
           marketingAccepted
         }),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         setSubmitted(true);
-        setEmail('');
+        setNombre('');
+        setTelefono('');
+        setCorreo('');
+        setNss('');
+        setSemanas('');
         setPrivacyAccepted(false);
         setMarketingAccepted(false);
-        setTimeout(() => setSubmitted(false), 3000);
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        setError(data.error || 'Hubo un error al procesar tu solicitud');
       }
     } catch (err) {
       console.error(err);
+      setError('Error de conexión. Por favor intenta de nuevo.');
     } finally {
       setLoading(false);
     }
@@ -118,48 +143,123 @@ export default function Home() {
       <section id="form" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg p-12 text-white">
           <h2 className="text-3xl font-bold mb-4">
-            Descarga la guía: Cálculo de Semanas Cotizadas
+            Accede a Contenido Educativo Completo
           </h2>
           <p className="text-lg mb-8 text-blue-100">
-            Entiende cómo el IMSS cuenta tus semanas y cómo esto afecta tu pensión.
+            Registra tus datos para acceder a artículos, calculadora de pensiones y casos de éxito.
+            Te enviaremos un link de acceso a tu correo electrónico.
           </p>
 
-          <form onSubmit={handleSubmit} className="max-w-md">
+          <form onSubmit={handleSubmit} className="max-w-2xl">
+            {/* Nombre */}
             <div className="mb-4">
-              <label className="block text-white text-sm font-medium mb-2">Tu correo electrónico</label>
+              <label className="block text-white text-sm font-medium mb-2">
+                Nombre completo <span className="text-red-300">*</span>
+              </label>
               <input
-                type="email"
-                placeholder="ejemplo@correo.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                placeholder="Tu nombre"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
                 required
                 className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
               />
             </div>
 
+            {/* Teléfono */}
+            <div className="mb-4">
+              <label className="block text-white text-sm font-medium mb-2">
+                WhatsApp <span className="text-red-300">*</span>
+              </label>
+              <input
+                type="tel"
+                placeholder="+52 999 200 5550"
+                value={telefono}
+                onChange={(e) => setTelefono(e.target.value)}
+                required
+                className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+              />
+            </div>
+
+            {/* Correo */}
+            <div className="mb-4">
+              <label className="block text-white text-sm font-medium mb-2">
+                Correo electrónico <span className="text-red-300">*</span>
+              </label>
+              <input
+                type="email"
+                placeholder="tu@correo.com"
+                value={correo}
+                onChange={(e) => setCorreo(e.target.value)}
+                required
+                className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+              />
+            </div>
+
+            {/* NSS y Semanas en dos columnas */}
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div>
+                <label className="block text-white text-sm font-medium mb-2">
+                  NSS <span className="text-xs text-blue-100">(opcional)</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="00000000000"
+                  value={nss}
+                  onChange={(e) => setNss(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+                />
+              </div>
+
+              <div>
+                <label className="block text-white text-sm font-medium mb-2">
+                  Semanas cotizadas <span className="text-xs text-blue-100">(opcional)</span>
+                </label>
+                <input
+                  type="number"
+                  min="0"
+                  max="750"
+                  placeholder="500"
+                  value={semanas}
+                  onChange={(e) => setSemanas(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+                />
+              </div>
+            </div>
+
             {/* Consent Checkboxes */}
-            <div className="mb-4 bg-white/10 p-4 rounded-lg">
+            <div className="mb-4 bg-white/15 p-4 rounded-lg">
               <ConsentCheckboxes
                 privacyAccepted={privacyAccepted}
                 setPrivacyAccepted={setPrivacyAccepted}
                 marketingAccepted={marketingAccepted}
                 setMarketingAccepted={setMarketingAccepted}
+                darkMode={true}
               />
             </div>
+
+            {/* Error message */}
+            {error && (
+              <div className="mb-4 bg-red-500/20 border border-red-300 rounded-lg p-3">
+                <p className="text-sm text-red-100">{error}</p>
+              </div>
+            )}
 
             <button
               type="submit"
               disabled={loading || !privacyAccepted}
               className="w-full bg-white text-blue-600 font-bold py-3 rounded-lg hover:bg-blue-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? 'Enviando...' : 'Recibir Guía Gratis'}
+              {loading ? 'Procesando...' : 'Recibir Acceso'}
             </button>
           </form>
 
           {submitted && (
-            <p className="text-green-100 mt-4">
-              ✓ Revisa tu correo. Te enviaremos la guía en los próximos minutos.
-            </p>
+            <div className="mt-4 bg-green-500/20 border border-green-300 rounded-lg p-4">
+              <p className="text-green-100 text-center">
+                ✓ Revisa tu correo. Te enviaremos el link de acceso en los próximos minutos.
+              </p>
+            </div>
           )}
         </div>
       </section>

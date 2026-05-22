@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import LegalDisclaimer from '../components/LegalDisclaimer';
 import Footer from '@/app/components/Footer';
+import GatedContent from '@/app/components/GatedContent';
 
 const cases = [
   {
@@ -82,9 +83,10 @@ export default function CasosPage() {
         <LegalDisclaimer variant="compact" />
       </section>
 
-      {/* Cases Grid */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid md:grid-cols-2 gap-8">
+      <GatedContent>
+        {/* Cases Grid */}
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="grid md:grid-cols-2 gap-8">
           {cases.map((caseItem) => (
             <div
               key={caseItem.name}
@@ -141,7 +143,8 @@ export default function CasosPage() {
             Agendar Consulta Gratuita
           </a>
         </div>
-      </section>
+        </section>
+      </GatedContent>
 
       <Footer />
     </div>

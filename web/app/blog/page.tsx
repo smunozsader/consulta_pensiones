@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import LegalDisclaimer from '../components/LegalDisclaimer';
 import Footer from '@/app/components/Footer';
+import GatedContent from '../components/GatedContent';
 
 const blogPosts = [
   {
@@ -69,46 +70,48 @@ export default function BlogPage() {
         </div>
       </header>
 
-      {/* Blog Content */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Recursos educativos sobre pensiones
-          </h1>
-          <p className="text-xl text-gray-600">
-            Guías completas, casos prácticos y análisis normativo para ayudarte a entender tus opciones de pensión.
-          </p>
-        </div>
+      <GatedContent>
+        {/* Blog Content */}
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="mb-12">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              Recursos educativos sobre pensiones
+            </h1>
+            <p className="text-xl text-gray-600">
+              Guías completas, casos prácticos y análisis normativo para ayudarte a entender tus opciones de pensión.
+            </p>
+          </div>
 
-        <div className="mb-8">
-          <LegalDisclaimer variant="compact" />
-        </div>
+          <div className="mb-8">
+            <LegalDisclaimer variant="compact" />
+          </div>
 
-        <div className="grid gap-8">
-          {blogPosts.map((post) => (
-            <article
-              key={post.id}
-              className="border border-gray-200 rounded-lg p-8 hover:shadow-lg transition"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <span className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded">
-                  {post.category}
-                </span>
-                <time className="text-gray-500 text-sm">{post.date}</time>
-              </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-3">{post.title}</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">{post.excerpt}</p>
-              <Link
-                href={`/blog/${post.id}`}
-                className="text-blue-600 hover:text-blue-800 font-semibold inline-flex items-center gap-2"
+          <div className="grid gap-8">
+            {blogPosts.map((post) => (
+              <article
+                key={post.id}
+                className="border border-gray-200 rounded-lg p-8 hover:shadow-lg transition"
               >
-                Leer artículo completo
-                <span>→</span>
-              </Link>
-            </article>
-          ))}
-        </div>
-      </section>
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded">
+                    {post.category}
+                  </span>
+                  <time className="text-gray-500 text-sm">{post.date}</time>
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-3">{post.title}</h2>
+                <p className="text-gray-600 mb-6 leading-relaxed">{post.excerpt}</p>
+                <Link
+                  href={`/blog/${post.id}`}
+                  className="text-blue-600 hover:text-blue-800 font-semibold inline-flex items-center gap-2"
+                >
+                  Leer artículo completo
+                  <span>→</span>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </section>
+      </GatedContent>
 
       <Footer />
     </div>

@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import Footer from '@/app/components/Footer';
+import GatedContent from '@/app/components/GatedContent';
 
 export default function Modalidad10() {
   return (
@@ -12,7 +15,7 @@ export default function Modalidad10() {
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <GatedContent><main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <Link href="/blog" className="text-blue-600 hover:text-blue-800 mb-6 inline-block">
           ← Volver al blog
         </Link>
@@ -106,7 +109,7 @@ export default function Modalidad10() {
             </a>
           </div>
         </article>
-      </main>
+      </main></GatedContent>
 
       <Footer />
     </div>

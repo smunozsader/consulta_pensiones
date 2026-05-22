@@ -5,6 +5,7 @@ import { useState, useMemo } from 'react';
 import { CalculadoraModalidad40 } from '@/lib/calculadora';
 import LegalDisclaimer from '../components/LegalDisclaimer';
 import Footer from '@/app/components/Footer';
+import GatedContent from '@/app/components/GatedContent';
 
 interface CasoPractico {
   nombre: string;
@@ -98,8 +99,9 @@ export default function CalculadoraPage() {
         </div>
       </header>
 
-      {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <GatedContent>
+        {/* Main Content */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Calculadora Modalidad 40 - Ley 73
         </h1>
@@ -364,7 +366,8 @@ export default function CalculadoraPage() {
             Agendar Consulta
           </a>
         </div>
-      </div>
+        </div>
+      </GatedContent>
 
       <Footer />
     </div>
