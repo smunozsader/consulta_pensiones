@@ -36,7 +36,7 @@ export async function POST(request: Request) {
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
       currency: 'mxn',
-      customer_email: email,
+      receipt_email: email,
       metadata: {
         serviceName,
         nombre,
