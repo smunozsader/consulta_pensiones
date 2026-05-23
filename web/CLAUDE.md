@@ -172,3 +172,52 @@ CVC: 3 dígitos cualquiera
 ---
 
 **Próximo paso:** Obtener credenciales de Mercado Pago y proceder con migración de pagos.
+
+---
+
+## 🎯 PRODUCT FEEDBACK (First User: Daniel)
+
+**Fecha:** Mayo 23, 2026  
+**Usuario:** Daniel (First User Test)  
+**Importancia:** CRÍTICA - Feedback de usuario real
+
+### Insights Clave:
+
+1. **Modelo de Acceso (FREEMIUM)** ⚠️
+   - ❌ "Ahora todo está muy cerrado"
+   - ❌ "La gente nos gusta gratis y sin registro"
+   - ✅ **Solución:** Permitir acceso a calculadora/ejemplos SIN registro
+   - ✅ **Gate:** Solo descargar resultados requiere registro
+   - **Implementación:** Abrir `/calculadora` para todos, agregar modal de registro al descargar
+
+2. **Redundancia de CTAs** ⚠️
+   - ❌ "Contactar y Agendar te lleva a lo mismo"
+   - ❌ "Quizá encuentres otra forma única de dirigirte a WhatsApp"
+   - ✅ **Solución:** Diferenciar:
+     - **"Contactar"** → Chat directo (lead inmediato)
+     - **"Agendar"** → Calendario integrado (Calendly/Cal.com)
+     - O eliminar uno y dejar solo el más relevante
+
+3. **Seguridad & Privacidad de Datos** 🔐
+   - ❌ "El manejo de datos hay que tener mucho cuidado que no te roben"
+   - ✅ **Acción:** 
+     - Destacar LFPDPPP compliance en formularios
+     - Agregar sección "Privacidad" clara
+     - Badge de seguridad (SSL, GDPR, etc.)
+     - Explicar cómo se protegen datos
+
+4. **Percepción de Restricción**
+   - ❌ "La versión anterior de Vercel tenía más acceso a info"
+   - ✅ **Acción:** Revisar qué contenido debe ser público vs gated
+
+### Próximas Acciones:
+
+- [ ] Implementar modelo FREEMIUM (calculadora pública, descargas registradas)
+- [ ] Diferenciar/consolidar CTAs (Contactar vs Agendar)
+- [ ] Agregar badge de seguridad y énfasis en LFPDPPP
+- [ ] Abrir acceso a más contenido educativo (sin paywall)
+- [ ] Test A/B: versión "abierta" vs "cerrada"
+
+### Feedback Positivo:
+✅ "Vas muy bien compadre, éxito!!"
+
