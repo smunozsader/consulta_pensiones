@@ -1,9 +1,14 @@
 import Stripe from 'stripe';
 import { saveServiceRequest, ServiceRequest } from '@/lib/firebase-service';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-  
-});
+let stripe: Stripe | null = null;
+
+function getStripe(): Stripe {
+  if (!stripe) {
+    stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {});
+  }
+  return stripe;
+}
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET || '';
 
@@ -16,6 +21,7 @@ export async function POST(request: Request) {
       return Response.json({ error: 'Missing webhook secret or signature' }, { status: 400 });
     }
 
+    const stripe = getStripe();
     let event: Stripe.Event;
 
     try {
@@ -25,7 +31,6 @@ export async function POST(request: Request) {
       return Response.json({ error: 'Invalid signature' }, { status: 400 });
     }
 
-    // Handle payment_intent.succeeded
     if (event.type === 'payment_intent.succeeded') {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
 
@@ -47,7 +52,6 @@ export async function POST(request: Request) {
         authorizesRepresentation,
       } = paymentIntent.metadata;
 
-      // Reconstruct the service request data
       const serviceRequestData: Omit<ServiceRequest, 'requestId'> = {
         serviceName: serviceName as any,
         status: 'pending',
@@ -78,11 +82,9 @@ export async function POST(request: Request) {
       }
     }
 
-    // Handle payment_intent.payment_failed
     if (event.type === 'payment_intent.payment_failed') {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
       console.log(`Payment failed for intent: ${paymentIntent.id}`);
-      // Could implement retry logic or notification here
     }
 
     return Response.json({ received: true }, { status: 200 });

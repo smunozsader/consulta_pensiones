@@ -1,14 +1,19 @@
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-  
-});
+let stripe: Stripe | null = null;
+
+function getStripe(): Stripe {
+  if (!stripe) {
+    stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {});
+  }
+  return stripe;
+}
 
 function getServicePrice(serviceName: string): number {
   const prices: Record<string, number> = {
-    'estado-cuenta': 89900, // $899 in cents
-    'modalidad-40': 129900, // $1,299 in cents
-    'solicitud-pension': 289900, // $2,899 in cents
+    'estado-cuenta': 89900,
+    'modalidad-40': 129900,
+    'solicitud-pension': 289900,
   };
   return prices[serviceName] || 0;
 }
@@ -16,22 +21,13 @@ function getServicePrice(serviceName: string): number {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { serviceName, nombre, email } = body;
+    const { amount, serviceId, serviceName, nombre, email, telefono, curp, nss, tieneEstadoCuenta, edadActual, salarioDiario, authorizesRepresentation } = body;
 
-    if (!serviceName || !nombre || !email) {
-      return Response.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      );
+    if (!amount || !serviceName) {
+      return Response.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const amount = getServicePrice(serviceName);
-    if (amount === 0) {
-      return Response.json(
-        { error: 'Invalid service name' },
-        { status: 400 }
-      );
-    }
+    const stripe = getStripe();
 
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
@@ -41,21 +37,22 @@ export async function POST(request: Request) {
         serviceName,
         nombre,
         email,
+        telefono,
+        curp,
+        nss: nss || '',
+        tieneEstadoCuenta: String(tieneEstadoCuenta),
+        edadActual: String(edadActual || ''),
+        salarioDiario: String(salarioDiario || ''),
+        authorizesRepresentation: String(authorizesRepresentation),
       },
-      description: `Gestión: ${serviceName}`,
     });
 
     return Response.json({
-      success: true,
       clientSecret: paymentIntent.client_secret,
       paymentIntentId: paymentIntent.id,
-      amount,
     });
   } catch (error) {
-    console.error('Payment intent creation error:', error);
-    return Response.json(
-      { error: 'Failed to create payment intent' },
-      { status: 500 }
-    );
+    console.error('Payment error:', error);
+    return Response.json({ error: 'Failed to create payment intent' }, { status: 500 });
   }
 }
