@@ -5,7 +5,6 @@ import { useState, useMemo } from 'react';
 import { CalculadoraModalidad40 } from '@/lib/calculadora';
 import LegalDisclaimer from '../components/LegalDisclaimer';
 import Footer from '@/app/components/Footer';
-import GatedContentBoundary from '@/app/components/GatedContentBoundary';
 
 interface CasoPractico {
   nombre: string;
@@ -99,9 +98,8 @@ export default function CalculadoraPage() {
         </div>
       </header>
 
-      <GatedContentBoundary>
-        {/* Main Content */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {/* Main Content */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Calculadora Modalidad 40 - Ley 73
         </h1>
@@ -351,6 +349,34 @@ export default function CalculadoraPage() {
           </div>
         </div>
 
+        {/* Export Results */}
+        {resultado && (
+          <div className="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <h3 className="text-lg font-bold text-gray-900 mb-4">Guarda tus resultados</h3>
+            <p className="text-gray-600 mb-4">
+              Registra tu email para descargar tus cálculos en PDF y guardar tu progreso.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button
+                onClick={() => {
+                  alert('Para descargar tu PDF, registra tu email. Esta función estará disponible pronto.');
+                }}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition"
+              >
+                📥 Descargar como PDF
+              </button>
+              <button
+                onClick={() => {
+                  alert('Para descargar tu CSV, registra tu email. Esta función estará disponible pronto.');
+                }}
+                className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold transition"
+              >
+                📊 Descargar como Excel
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* CTA */}
         <div className="mt-16 bg-blue-600 text-white p-12 rounded-lg text-center">
           <h3 className="text-2xl font-bold mb-4">¿Quieres un análisis personalizado?</h3>
@@ -363,11 +389,10 @@ export default function CalculadoraPage() {
             rel="noopener noreferrer"
             className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-bold inline-block"
           >
-            Agendar Consulta
+            Contactar por WhatsApp
           </a>
         </div>
-        </div>
-      </GatedContentBoundary>
+      </div>
 
       <Footer />
     </div>

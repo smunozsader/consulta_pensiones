@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useStripe, useElements, PaymentElement } from '@stripe/react-stripe-js';
 
 interface StripePaymentFormProps {
@@ -74,6 +75,15 @@ export default function StripePaymentForm({
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Trust Messaging */}
+        <div className="bg-green-50 border border-green-200 rounded-lg p-3 flex items-start gap-2">
+          <span className="text-lg">🔒</span>
+          <div className="text-sm text-green-800">
+            <p className="font-semibold">Datos encriptados y seguros</p>
+            <p className="text-xs mt-1">Tu información de pago es procesada por Stripe (PCI-DSS Level 1 certificado). LFPDPPP Cumplimiento.</p>
+          </div>
+        </div>
+
         <div>
           <label className="block text-gray-900 text-sm font-semibold mb-3">
             Información de Pago
@@ -108,7 +118,7 @@ export default function StripePaymentForm({
         </button>
 
         <p className="text-xs text-gray-500 text-center">
-          Tu pago es seguro y procesado por Stripe. Tu información nunca se comparte.
+          Datos protegidos según LFPDPPP. <Link href="/privacidad" className="text-blue-600 hover:underline">Ver política de privacidad</Link>
         </p>
       </form>
     </div>

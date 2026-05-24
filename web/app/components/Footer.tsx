@@ -10,7 +10,7 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400 text-sm">
               <li><Link href="/about" className="hover:text-white">Acerca de</Link></li>
               <li><Link href="/casos" className="hover:text-white">Casos de éxito</Link></li>
-              <li><a href="https://wa.me/529992005550" className="hover:text-white">Agendar consulta</a></li>
+              <li><a href="https://wa.me/529992005550" className="hover:text-white">Contactar por WhatsApp</a></li>
             </ul>
           </div>
           <div>

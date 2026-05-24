@@ -45,7 +45,7 @@ export default function Hero() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white hover:bg-white/10 text-white rounded-lg transition-all duration-200"
               >
                 <Calendar className="w-5 h-5" />
-                Agendar Consulta
+                Contactar por WhatsApp
               </a>
             </div>
           </div>

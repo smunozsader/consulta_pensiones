@@ -140,7 +140,7 @@ export default function CasosPage() {
             rel="noopener noreferrer"
             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold inline-block"
           >
-            Agendar Consulta Gratuita
+            Contactar por WhatsApp
           </a>
         </div>
         </section>

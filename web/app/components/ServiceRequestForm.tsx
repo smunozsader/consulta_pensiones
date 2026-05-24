@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import SecurityBadge from './SecurityBadge';
 
 interface ServiceRequestFormProps {
   serviceName: string;
@@ -99,6 +101,11 @@ export default function ServiceRequestForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Security Badge */}
+      <div className="mb-6">
+        <SecurityBadge size="small" variant="block" />
+      </div>
+
       {/* Nombre */}
       <div>
         <label className="block text-gray-900 text-sm font-semibold mb-2">
@@ -133,6 +140,7 @@ export default function ServiceRequestForm({
           } text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
         />
         {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+        <p className="text-gray-500 text-xs mt-1">🔒 No será compartido. Usamos Resend para confirmaciones seguras.</p>
       </div>
 
       {/* Teléfono */}
@@ -151,6 +159,7 @@ export default function ServiceRequestForm({
           } text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
         />
         {errors.telefono && <p className="text-red-500 text-sm mt-1">{errors.telefono}</p>}
+        <p className="text-gray-500 text-xs mt-1">📱 Solo para contactarte sobre tu solicitud.</p>
       </div>
 
       {/* CURP */}
@@ -170,6 +179,7 @@ export default function ServiceRequestForm({
           } text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
         />
         {errors.curp && <p className="text-red-500 text-sm mt-1">{errors.curp}</p>}
+        <p className="text-gray-500 text-xs mt-1">🔐 Protegido bajo LFPDPPP. Nunca será compartido sin autorización.</p>
       </div>
 
       {/* NSS - Conditional */}
@@ -276,6 +286,11 @@ export default function ServiceRequestForm({
       >
         {loading ? 'Procesando...' : 'Continuar con el Pago'}
       </button>
+
+      {/* Privacy Link */}
+      <p className="text-center text-xs text-gray-500">
+        Tus datos están protegidos. Leer nuestra <Link href="/privacidad" className="text-blue-600 hover:underline">Política de Privacidad</Link>
+      </p>
     </form>
   );
 }

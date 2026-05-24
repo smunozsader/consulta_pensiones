@@ -1,241 +1,270 @@
 'use client';
 
 import Link from 'next/link';
+import Footer from '@/app/components/Footer';
+import { useState } from 'react';
 
 export default function PrivacidadPage() {
+  const [expandedSections, setExpandedSections] = useState<string[]>(['quedat']);
+
+  const toggleSection = (id: string) => {
+    setExpandedSections(prev =>
+      prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id]
+    );
+  };
+
+  const sections = [
+    {
+      id: 'quedat',
+      title: 'QUÉ DATOS RECOLECTAMOS',
+      content: (
+        <div className="space-y-4 text-gray-700">
+          <p><strong>De formularios:</strong> Nombre, email, teléfono, CURP, NSS, información sobre servicios solicitados</p>
+          <p><strong>Automáticos:</strong> Dirección IP, tipo de navegador, páginas visitadas (mediante Google Analytics con anonimización)</p>
+          <p><strong>De pagos:</strong> Información de tarjeta <strong>NUNCA es almacenada</strong> en nuestros servidores. Es procesada directamente por Stripe y Mercado Pago (proveedores certificados)</p>
+          <p><strong>De soporte:</strong> Si contactas por WhatsApp, guardamos la conversación en la plataforma de Stripe o gestión interna (con tu consentimiento)</p>
+        </div>
+      )
+    },
+    {
+      id: 'porque',
+      title: 'POR QUÉ RECOLECTAMOS DATOS',
+      content: (
+        <div className="space-y-4 text-gray-700">
+          <ul className="list-disc list-inside space-y-2">
+            <li><strong>Para contactarte:</strong> Responder tus preguntas y confirmar solicitudes de servicio</li>
+            <li><strong>Para mejorar el sitio:</strong> Entender cómo usas la calculadora (Google Analytics anónimo)</li>
+            <li><strong>Para sendemailer:</strong> Enviar confirmaciones de email, educación sobre pensiones (solo si consientes)</li>
+            <li><strong>Para procesar pagos:</strong> Hacer transacciones seguras con Stripe/Mercado Pago</li>
+            <li><strong>Cumplimiento legal:</strong> Si auditoría IMSS lo requiere (raramente, bajo orden legal)</li>
+          </ul>
+        </div>
+      )
+    },
+    {
+      id: 'lfpdppp',
+      title: 'CUMPLIMIENTO LFPDPPP',
+      content: (
+        <div className="space-y-4 text-gray-700">
+          <p>Cumplimos 100% con la <strong>Ley Federal de Protección de Datos Personales en Posesión de Particulares (LFPDPPP)</strong>:</p>
+          <ul className="list-disc list-inside space-y-2">
+            <li><strong>Consentimiento:</strong> No recolectamos datos sin tu permiso. Todos los formularios tienen opciones de consentimiento claras</li>
+            <li><strong>Minimización:</strong> Solo pedimos los datos que realmente necesitamos</li>
+            <li><strong>Seguridad:</strong> Datos en tránsito (TLS encriptado) y en reposo (Firebase encriptado)</li>
+            <li><strong>Acceso & Rectificación:</strong> Puedes solicitar ver o actualizar tus datos en cualquier momento</li>
+            <li><strong>Transparencia:</strong> Esta política explica exactamente qué hacemos con tus datos</li>
+          </ul>
+          <p className="mt-4 p-3 bg-blue-50 rounded border border-blue-200">
+            <strong>Auditoría anual:</strong> Revisamos nuestras prácticas de protección de datos cada año para garantizar cumplimiento continuo.
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'herramientas',
+      title: 'HERRAMIENTAS Y PROVEEDORES',
+      content: (
+        <div className="space-y-4 text-gray-700">
+          <div className="space-y-3 border-l-4 border-blue-400 pl-4">
+            <div>
+              <p className="font-semibold">Google Analytics</p>
+              <p>Tracking anónimo de navegación. No almacenamos IPs personales. <a href="https://policies.google.com/privacy" className="text-blue-600 hover:underline" target="_blank">Política Google</a></p>
+            </div>
+            <div>
+              <p className="font-semibold">Resend (Email)</p>
+              <p>Envío de confirmaciones de email. Los datos se transfieren a través de conexión encriptada. <a href="https://resend.com/privacy" className="text-blue-600 hover:underline" target="_blank">Política Resend</a></p>
+            </div>
+            <div>
+              <p className="font-semibold">Stripe (Pagos)</p>
+              <p>Procesamiento de pagos con tarjeta. PCI-DSS Level 1 certificado (máximo estándar de seguridad). <a href="https://stripe.com/privacy" className="text-blue-600 hover:underline" target="_blank">Política Stripe</a></p>
+            </div>
+            <div>
+              <p className="font-semibold">Mercado Pago (Pagos - futuro)</p>
+              <p>Procesamiento de pagos con billetera. Cumplimiento regulatorio mexicano. <a href="https://www.mercadopago.com.mx/privacidad" className="text-blue-600 hover:underline" target="_blank">Política Mercado Pago</a></p>
+            </div>
+            <div>
+              <p className="font-semibold">Firebase (Base de datos)</p>
+              <p>Almacenamiento de solicitudes de servicio. Google Cloud encriptado en reposo. Ubicación: US (con cumplimiento SCG-2). <a href="https://firebase.google.com/support/privacy" className="text-blue-600 hover:underline" target="_blank">Política Firebase</a></p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'derechos',
+      title: 'TUS DERECHOS (ARCO)',
+      content: (
+        <div className="space-y-4 text-gray-700">
+          <p className="bg-yellow-50 p-3 rounded border border-yellow-200">
+            Tienes derechos ARCO: <strong>Acceso, Rectificación, Cancelación, Oposición</strong>
+          </p>
+          <ul className="space-y-3">
+            <li>
+              <p className="font-semibold">Acceso (A):</p>
+              <p>Solicita ver qué datos tenemos sobre ti. Responderemos en 15 días hábiles.</p>
+            </li>
+            <li>
+              <p className="font-semibold">Rectificación (R):</p>
+              <p>¿Datos incorrectos? Solicita actualizar tu información. Cambios en 5 días hábiles.</p>
+            </li>
+            <li>
+              <p className="font-semibold">Cancelación (C):</p>
+              <p>Quieres que eliminemos tu información. Borraremos (excepto si hay obligación legal). 30 días hábiles.</p>
+            </li>
+            <li>
+              <p className="font-semibold">Oposición (O):</p>
+              <p>No quieres recibir emails de marketing. Los detenemos inmediatamente.</p>
+            </li>
+          </ul>
+          <div className="mt-4 p-4 bg-green-50 rounded border border-green-200">
+            <p className="font-semibold mb-2">Cómo solicitar:</p>
+            <p>Envía email a: <strong>mi.consultor.pensiones@gmail.com</strong></p>
+            <p className="text-sm mt-2">Asunto: <code className="bg-gray-100 px-2 py-1 rounded">SOLICITUD ARCO - [Tu Nombre]</code></p>
+            <p className="text-sm mt-2">Incluye: Nombre completo, email, qué dato solicitas (Acceso/Rectificación/Cancelación/Oposición)</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'seguridad',
+      title: 'SEGURIDAD FÍSICA Y TÉCNICA',
+      content: (
+        <div className="space-y-4 text-gray-700">
+          <ul className="space-y-3">
+            <li>
+              <p className="font-semibold">🔐 Bases de datos:</p>
+              <p>Cifradas en reposo. Backups automáticos diarios. Acceso limitado (solo Sergio con contraseña fuerte).</p>
+            </li>
+            <li>
+              <p className="font-semibold">🔑 Control de acceso:</p>
+              <p>Solo el titular (Sergio) puede ver solicitudes de servicio. Contraseñas de admin criptográficamente seguras.</p>
+            </li>
+            <li>
+              <p className="font-semibold">🖥️ Servidor:</p>
+              <p>Vercel (infraestructura global, cumplimiento SOC 2 Type II, ubicación US con redundancia).</p>
+            </li>
+            <li>
+              <p className="font-semibold">🚨 Monitoreo:</p>
+              <p>Alertas automáticas si intentos de acceso anómalo. Logs auditable de cambios.</p>
+            </li>
+            <li>
+              <p className="font-semibold">🔗 Transmisión:</p>
+              <p>Todo en HTTPS (TLS 1.2+). Certificado SSL Let's Encrypt verificado.</p>
+            </li>
+          </ul>
+        </div>
+      )
+    },
+    {
+      id: 'cookies',
+      title: 'POLÍTICA DE COOKIES',
+      content: (
+        <div className="space-y-4 text-gray-700">
+          <ul className="space-y-3">
+            <li>
+              <p className="font-semibold">Google Analytics:</p>
+              <p>Cookies para estadísticas de uso (anónimo). No rastrean identidad. Puedes desactivarlas en tu navegador.</p>
+            </li>
+            <li>
+              <p className="font-semibold">LocalStorage (Navegador):</p>
+              <p>Guardamos tu token de acceso localmente para mantener sesión. No se comparte, solo en tu dispositivo.</p>
+            </li>
+            <li>
+              <p className="font-semibold">Stripe/Mercado Pago:</p>
+              <p>Sus propias cookies para seguridad de pago. Ver políticas de ellos para detalles.</p>
+            </li>
+          </ul>
+          <p className="mt-4 text-sm text-gray-600">
+            Puedes desactivar cookies en tu navegador (Configuración → Privacidad), pero algunos sitios pueden no funcionar correctamente.
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'cambios',
+      title: 'CONTACTO & CAMBIOS A ESTA POLÍTICA',
+      content: (
+        <div className="space-y-4 text-gray-700">
+          <p>
+            <strong>¿Preguntas sobre privacidad?</strong> Contáctame:
+          </p>
+          <ul className="space-y-2 pl-4">
+            <li>📧 Email: <strong>mi.consultor.pensiones@gmail.com</strong></li>
+            <li>💬 WhatsApp: <a href="https://wa.me/529992005550" className="text-blue-600 hover:underline">https://wa.me/529992005550</a></li>
+          </ul>
+          <p className="mt-4">
+            <strong>Cambios a esta política:</strong> Si hay actualizaciones, te notificaré 30 días antes. Cambios menores (correcciones de ortografía) pueden ser inmediatos.
+          </p>
+          <p className="mt-4 text-sm text-gray-600">
+            <strong>Última actualización:</strong> Mayo 23, 2026<br/>
+            <strong>Versión anterior:</strong> No disponible (primera versión)
+          </p>
+        </div>
+      )
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
-      <header className="border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-blue-600">
-            Consultoría de Pensiones
-          </Link>
+      {/* Header */}
+      <header className="border-b border-gray-200 sticky top-0 z-50 bg-white/90 backdrop-blur">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex justify-between items-center">
+          <Link href="/" className="text-2xl font-bold text-blue-600">Consultoría de Pensiones</Link>
+          <a
+            href="https://wa.me/529992005550"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium"
+          >
+            Contactar por WhatsApp
+          </a>
         </div>
       </header>
 
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">Aviso de Privacidad Integral</h1>
-        <p className="text-gray-600 mb-8 text-sm italic">Conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP, 2025)</p>
+      {/* Main Content */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">Política de Privacidad</h1>
+        <p className="text-xl text-gray-600 mb-4">Protección de Datos Personales - LFPDPPP Cumplimiento</p>
+        <p className="text-gray-600 mb-12">Tu información está segura con nosotros. Esta política explica exactamente qué datos recolectamos, por qué, y cómo los protegemos.</p>
 
-        <div className="prose prose-lg max-w-none space-y-8 text-gray-700">
-          <section className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Responsable del Tratamiento de Datos</h2>
-            <p>
-              <strong>Nombre:</strong> Consultoría Integral de Pensiones<br/>
-              <strong>Responsable Legal:</strong> Sergio Muñoz de Alba Medrano<br/>
-              <strong>Domicilio:</strong> Mérida, Yucatán, México<br/>
-              <strong>Email:</strong> mi.consultor.pensiones@gmail.com<br/>
-              <strong>WhatsApp:</strong> +52 999 200 5550
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Finalidades del Tratamiento de Datos</h2>
-            <p><strong>Finalidades Principales:</strong></p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Gestionar tu registro como usuario en el sitio web</li>
-              <li>Procesar tu solicitud de consultoría sobre pensiones</li>
-              <li>Enviar la guía gratuita solicitada (cálculo de semanas cotizadas)</li>
-              <li>Brindar asesoría personalizada conforme contratos de servicios</li>
-            </ul>
-            <p className="mt-4"><strong>Finalidades Secundarias:</strong></p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Enviar boletines educativos sobre normativa de pensiones</li>
-              <li>Información sobre nuevos servicios o contenidos del blog</li>
-              <li>Análisis estadístico del uso del sitio</li>
-            </ul>
-            <p className="mt-4 text-sm text-gray-600">
-              <strong>Negativa de Tratamiento Secundario:</strong> Si no deseas que tus datos se usen para finalidades secundarias,
-              deberás indicarlo explícitamente al momento de proporcionarnos tus datos o enviando un correo a mi.consultor.pensiones@gmail.com
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Datos Personales que Recabamos</h2>
-            <p>El sitio web recopila los siguientes datos personales:</p>
-            <ul className="list-disc pl-6 space-y-2 my-4">
-              <li><strong>Datos Básicos:</strong> Nombre completo, correo electrónico, teléfono (opcional)</li>
-              <li><strong>Datos Laborales (para consultoría):</strong> Historia laboral, número de semanas cotizadas, Salario Diario Promedio</li>
-              <li><strong>Datos de Análisis:</strong> Información de navegación en el sitio (Google Analytics - anónima)</li>
-              <li><strong>Datos de Contacto:</strong> Registrados mediante formularios o WhatsApp</li>
-            </ul>
-            <div className="bg-red-50 p-4 rounded border-l-4 border-red-600 my-4">
-              <p className="font-bold text-red-900 mb-2">⚠️ Datos que NO Solicitamos:</p>
-              <p className="text-sm">
-                Esta plataforma <strong>NO solicita</strong>: NSS, RFC, CURP, datos bancarios, ni información financiera sensible.
-                <br/><strong>NUNCA</strong> proporciones estos datos a través de formularios públicos.
-              </p>
+        {/* Accordion Sections */}
+        <div className="space-y-3">
+          {sections.map(section => (
+            <div key={section.id} className="border border-gray-200 rounded-lg overflow-hidden">
+              <button
+                onClick={() => toggleSection(section.id)}
+                className="w-full px-6 py-4 flex justify-between items-center hover:bg-gray-50 transition"
+              >
+                <h2 className="text-lg font-semibold text-gray-900">{section.title}</h2>
+                <span className="text-gray-500 text-2xl">
+                  {expandedSections.includes(section.id) ? '−' : '+'}
+                </span>
+              </button>
+              {expandedSections.includes(section.id) && (
+                <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
+                  {section.content}
+                </div>
+              )}
             </div>
-          </section>
+          ))}
+        </div>
 
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Transferencia de Datos a Terceros</h2>
-            <p>
-              Tus datos personales <strong>NO se ceden ni transfieren a terceros</strong> sin tu consentimiento expreso,
-              excepto cuando sea requerido por ley.
-            </p>
-            <p className="mt-4">
-              <strong>Proveedores de Servicios Técnicos (con protección de privacidad):</strong>
-            </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm">
-              <li><strong>Vercel:</strong> Hosting y alojamiento con HTTPS/SSL encriptado</li>
-              <li><strong>Firebase:</strong> Base de datos segura para almacenar datos (Google Cloud)</li>
-              <li><strong>Google Analytics:</strong> Análisis agregado y anónimo de navegación</li>
-              <li><strong>Resend:</strong> Envío de emails automáticos (comunicaciones)</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Almacenamiento, Seguridad y Plazo de Conservación</h2>
-            <p><strong>Medidas de Seguridad:</strong></p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Encriptación HTTPS:</strong> Todos los datos viajan encriptados entre tu navegador y nuestros servidores</li>
-              <li><strong>Acceso Limitado:</strong> Solo personal autorizado puede acceder a tus datos</li>
-              <li><strong>Sin Compartir:</strong> No se comparten con terceros para fines de marketing</li>
-            </ul>
-            <p className="mt-4">
-              <strong>Plazo de Conservación:</strong> Los datos se guardan solo el tiempo necesario para cumplir sus finalidades.
-              Una vez alcanzado ese plazo, serán eliminados de nuestras bases de datos.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Cookies y Tecnologías de Rastreo</h2>
-            <p>
-              Este sitio utiliza <strong>cookies técnicas de sesión</strong> para funcionar correctamente.
-              <strong>NO utilizamos cookies de publicidad o seguimiento invasivo.</strong>
-            </p>
-            <p className="mt-4">
-              <strong>Cookies Utilizadas:</strong>
-            </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm">
-              <li>Cookies de sesión (para mantener tu usuario autenticado - no persistentes)</li>
-              <li>Google Analytics (datos agregados y anónimos de navegación)</li>
-            </ul>
-            <p className="mt-4 text-sm">
-              Puedes desactivar cookies en la configuración de tu navegador, aunque esto puede afectar la funcionalidad del sitio.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Derechos ARCO (Derechos Garantizados)</h2>
-            <p>
-              Conforme a los <strong>Artículos 16 de la Constitución Mexicana</strong> y la <strong>LFPDPPP (2025)</strong>,
-              tienes los siguientes derechos sobre tus datos personales:
-            </p>
-            <div className="grid md:grid-cols-2 gap-4 my-6">
-              <div className="bg-green-50 p-4 rounded border-l-4 border-green-600">
-                <p className="font-bold text-green-900 mb-2">🔍 Acceso (A)</p>
-                <p className="text-sm">Acceder a tus datos personales que tenemos en nuestro poder</p>
-              </div>
-              <div className="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
-                <p className="font-bold text-blue-900 mb-2">✏️ Rectificación (R)</p>
-                <p className="text-sm">Rectificar información incorrecta o incompleta</p>
-              </div>
-              <div className="bg-red-50 p-4 rounded border-l-4 border-red-600">
-                <p className="font-bold text-red-900 mb-2">🗑️ Cancelación (C)</p>
-                <p className="text-sm">Solicitar la eliminación de tus datos cuando ya no sean necesarios</p>
-              </div>
-              <div className="bg-yellow-50 p-4 rounded border-l-4 border-yellow-600">
-                <p className="font-bold text-yellow-900 mb-2">🚫 Oposición (O)</p>
-                <p className="text-sm">Oponerte al tratamiento de tus datos para ciertos fines</p>
-              </div>
-            </div>
-
-            <p className="font-bold mt-6">Procedimiento para Ejercer Derechos ARCO:</p>
-            <ol className="list-decimal pl-6 space-y-3 mt-3 text-sm">
-              <li><strong>Envía tu solicitud</strong> a mi.consultor.pensiones@gmail.com indicando:
-                <ul className="list-disc pl-6 mt-2">
-                  <li>Tu nombre completo</li>
-                  <li>Derecho que deseas ejercer (Acceso, Rectificación, Cancelación u Oposición)</li>
-                  <li>Información que permita identificarte</li>
-                  <li>Copia de tu identificación oficial</li>
-                </ul>
-              </li>
-              <li><strong>Plazo de Respuesta:</strong> Responderemos dentro de <strong>20 días hábiles</strong></li>
-              <li><strong>Confirmación de Identidad:</strong> Podemos solicitar documentación adicional para verificarte</li>
-            </ol>
-
-            <div className="bg-blue-50 p-4 rounded mt-6 text-sm border-l-4 border-blue-600">
-              <p className="font-bold text-blue-900 mb-2">Principios Fundamentales de Protección:</p>
-              <p>El tratamiento de tus datos se rige por: <strong>licitud, finalidad, lealtad, consentimiento,
-              calidad, proporcionalidad, información y responsabilidad</strong>.</p>
-            </div>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Cambios en Este Aviso de Privacidad</h2>
-            <p>
-              Este Aviso de Privacidad puede ser actualizado en cualquier momento para reflejar cambios en nuestras
-              prácticas, tecnología, normativa legal o por otras razones operacionales.
-            </p>
-            <p className="mt-4">
-              Los cambios significativos serán notificados en esta página y por correo electrónico si afectan tus derechos fundamentales.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Información de Contacto y Atención</h2>
-            <div className="bg-gray-50 p-6 rounded border-l-4 border-gray-600">
-              <p className="font-bold text-gray-900 mb-4">Si tienes preguntas sobre privacidad o deseas ejercer tus derechos ARCO:</p>
-              <ul className="space-y-2 text-sm">
-                <li><strong>📧 Email:</strong> mi.consultor.pensiones@gmail.com</li>
-                <li><strong>💬 WhatsApp:</strong> +52 999 200 5550</li>
-                <li><strong>📍 Domicilio:</strong> Mérida, Yucatán, México</li>
-                <li><strong>⏱️ Tiempo de Respuesta:</strong> Dentro de 20 días hábiles</li>
-              </ul>
-            </div>
-          </section>
-
-          <div className="bg-yellow-50 border border-yellow-200 p-6 rounded-lg mt-8">
-            <p className="text-sm font-semibold text-yellow-900">
-              Última actualización: Mayo 22, 2026
-              <br/>
-              Vigencia: A partir del 20 de marzo de 2025 (conforme a LFPDPPP)
-            </p>
-          </div>
+        {/* Footer CTA */}
+        <div className="mt-16 p-8 bg-blue-50 rounded-lg border border-blue-200">
+          <h3 className="text-xl font-bold text-gray-900 mb-2">¿Aún con preguntas?</h3>
+          <p className="text-gray-700 mb-4">Contáctame directamente. Responderé en 24 horas.</p>
+          <a
+            href="https://wa.me/529992005550"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition"
+          >
+            Contactar por WhatsApp
+          </a>
         </div>
       </div>
 
-      <footer className="bg-gray-900 text-white py-12 mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h4 className="font-bold mb-4">Consultoría</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/about" className="hover:text-white">Acerca de</Link></li>
-                <li><Link href="/casos" className="hover:text-white">Casos de éxito</Link></li>
-                <li><a href="https://wa.me/529992005550" className="hover:text-white">Agendar consulta</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Recursos</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-                <li><a href="#form" className="hover:text-white">Descargar guía</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Legal</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/privacidad" className="hover:text-white">Privacidad</Link></li>
-                <li><Link href="/terminos" className="hover:text-white">Términos</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Contacto</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li>Email: mi.consultor.pensiones@gmail.com</li>
-                <li>WhatsApp: +52 999 200 5550</li>
-                <li>Mérida, Yucatán</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>&copy; 2026 Consultoría Integral de Pensiones. Todos los derechos reservados.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
