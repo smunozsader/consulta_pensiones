@@ -1,7 +1,47 @@
 # CLAUDE.md: Consultoría Integral de Pensiones - Memoria del Proyecto
 
-**Última actualización:** Mayo 20, 2026  
-**Estado del proyecto:** FASE REPOSITORIO NORMATIVO COMPLETADA - Listo para FASE WEB
+**Última actualización:** Mayo 25, 2026  
+**Estado del proyecto:** ✅ FASE WEB OPCIÓN B COMPLETADA - LFPDPPP Compliance + Freemium Model + Consolidated CTAs
+
+---
+
+## 🎤 INSTRUCCIONES IMPORTANTES PARA EL COUNCIL
+
+**IDIOMA DEL COUNCIL:** Todas las sesiones de consejo deben ser **EN ESPAÑOL**. El usuario prefiere asesoría en su idioma nativo.
+
+**Formato:** Cuando se corra el council (`/llm-council` o trigger equivalente), todos los 5 advisores deben:
+- Responder en ESPAÑOL formal y profesional
+- Mantener tono consistente con estilo Sergio (no coloquial)
+- Usar terminología técnica de pensiones mexicanas (IMSS, ISSSTE, modalidades, etc.)
+
+**Datos reales de competencia:** 
+- **Teresita Angulo Bribiesca (BPMR Previsión):** Propuesta de "Estudio para Lograr una Pensión Óptima del IMSS"
+  - Costo: $7,500 (Estudio actuarial + estrategias + asesoría, NO gestorías)
+  - Incluye: análisis de situación real, historial, estrategias actuariales, punto de equilibrio, asesoría hasta pensión
+  - Este es el competidor directo más cercano a nivel actuarial
+
+---
+
+## 🎯 ESTADO ACTUAL (Mayo 23, 2026)
+
+### OPCIÓN B: Product Optimization Complete ✅
+
+**Implementación finalizada:**
+- ✅ **Freemium Model:** /calculadora ahora pública (sin email gate). Descargas gated.
+- ✅ **CTA Consolidation:** Un solo "Contactar por WhatsApp" en todo el sitio. Eliminada redundancia.
+- ✅ **Trust & Security:** 
+  - /privacidad página completa (LFPDPPP compliance, ARCO rights, vendor transparency)
+  - SecurityBadge.tsx component para consistent messaging
+  - Security badges en ServiceRequestForm (email, phone, CURP fields)
+  - Trust messaging en StripePaymentForm (PCI-DSS, LFPDPPP)
+  - Privacy links en footer y forms
+
+**Deployment status:** Código pushedo a GitHub main. Vercel deploy en progreso.
+
+**Métrica de éxito:** Daniel's feedback: "TIENES QUE HACER FUNCIONAR ESTO" → Dirección frena con:
+1. Calculadora pública (user can explore sin friction)
+2. Consolidación de CTAs (clarity)
+3. Data security emphasis visible (trust building)
 
 ---
 
