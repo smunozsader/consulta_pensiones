@@ -252,7 +252,7 @@ export async function getClientServiceRequests(subscriberId: string) {
   }
 }
 
-export async function saveCalculation(data: Omit<CalculationRecord, 'calculationId'>) {
+export async function saveCalculation(data: Omit<CalculationRecord, 'calculationId' | 'createdAt'>) {
   try {
     const calculationsRef = ref(database, 'calculations');
     const newCalculationRef = push(calculationsRef);
