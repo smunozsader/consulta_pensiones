@@ -7,7 +7,7 @@ import PensionCalculator from '@/app/components/PensionCalculator';
 import PensionFAQ from '@/app/components/PensionFAQ';
 
 export default function PensionPage() {
-  const [activeTab, setActiveTab] = useState<'calculadora' | 'faq' | 'documentos'>('calculadora');
+  const [activeTab, setActiveTab] = useState<'calculadora' | 'faq'>('calculadora');
 
   return (
     <div className="min-h-screen bg-white">
@@ -105,22 +105,11 @@ export default function PensionPage() {
           >
             Preguntas Frecuentes
           </button>
-          <button
-            onClick={() => setActiveTab('documentos')}
-            className={`px-6 py-4 font-semibold transition ${
-              activeTab === 'documentos'
-                ? 'text-blue-600 border-b-2 border-blue-600'
-                : 'text-gray-600 hover:text-gray-900'
-            }`}
-          >
-            Documentos Necesarios
-          </button>
         </div>
 
         {/* Tab Content */}
         {activeTab === 'calculadora' && <PensionCalculator />}
         {activeTab === 'faq' && <PensionFAQ />}
-        {activeTab === 'documentos' && <DocumentationChecklist />}
 
         {/* Service CTA */}
         <div className="mt-20 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-12 text-white text-center">
