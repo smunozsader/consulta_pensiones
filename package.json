@@ -6,6 +6,10 @@
     "dev": "cd web && npm run dev",
     "build": "cd web && npm run build",
     "start": "cd web && npm start",
-    "lint": "cd web && npm run lint"
+    "lint": "cd web && npm run lint",
+    "install": "cd web && npm install"
+  },
+  "dependencies": {
+    "next": "16.2.6"
   }
 }
