@@ -49,7 +49,7 @@ export default function PersonalizedCalculator() {
 
         // Calculate for Modalidad 40
         if (ley === 'Modalidad 40') {
-          const resultado60 = calc.calcularPension(
+          const resultado60 = calc.calcularPensionLey73(
             salarioDiario,
             semanasCotizadas,
             60,
@@ -58,7 +58,7 @@ export default function PersonalizedCalculator() {
             padresDependientes
           );
 
-          const resultado65 = calc.calcularPension(
+          const resultado65 = calc.calcularPensionLey73(
             salarioDiario,
             semanasCotizadas,
             65,
