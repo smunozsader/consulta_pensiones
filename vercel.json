@@ -1,6 +1,5 @@
 {
-  "buildCommand": "cd web && npm run build",
-  "devCommand": "cd web && npm run dev",
-  "installCommand": "cd web && npm install",
-  "cleanUrls": true
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install"
 }
