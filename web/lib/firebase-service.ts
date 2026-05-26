@@ -43,6 +43,36 @@ export interface ServiceRequest {
   paymentDate?: string;
 }
 
+export interface CalculationRecord {
+  calculationId: string;
+  nombre: string;
+  email: string;
+  telefono?: string;
+
+  // Calculation Inputs
+  edadActual: number;
+  salarioDiario: number;
+  semanasCotizadas: number;
+  ley: string;
+  annoInicio: number;
+  tieneEsposa: boolean;
+  numHijos: number;
+  padresDependientes: boolean;
+
+  // Calculation Outputs
+  cuantiaBasica: number;
+  incrementoExtra: number;
+  pensionA60: number;
+  pensionA65: number;
+  gafes: number;
+
+  // Metadata
+  createdAt: string;
+  downloadedAt?: string;
+  pdfGenerated: boolean;
+  status: 'completed';
+}
+
 export async function saveSubscriber(data: SubscriberData) {
   try {
     const subscribersRef = ref(database, 'subscribers');
@@ -219,5 +249,70 @@ export async function getClientServiceRequests(subscriberId: string) {
   } catch (error) {
     console.error('Error getting client service requests:', error);
     return { success: false, data: [] };
+  }
+}
+
+export async function saveCalculation(data: Omit<CalculationRecord, 'calculationId'>) {
+  try {
+    const calculationsRef = ref(database, 'calculations');
+    const newCalculationRef = push(calculationsRef);
+    const calculationId = newCalculationRef.key || '';
+
+    const now = new Date().toISOString();
+
+    await set(newCalculationRef, {
+      calculationId,
+      nombre: data.nombre,
+      email: data.email,
+      telefono: data.telefono || '',
+
+      // Calculation Inputs
+      edadActual: data.edadActual,
+      salarioDiario: data.salarioDiario,
+      semanasCotizadas: data.semanasCotizadas,
+      ley: data.ley,
+      annoInicio: data.annoInicio,
+      tieneEsposa: data.tieneEsposa,
+      numHijos: data.numHijos,
+      padresDependientes: data.padresDependientes,
+
+      // Calculation Outputs
+      cuantiaBasica: data.cuantiaBasica,
+      incrementoExtra: data.incrementoExtra,
+      pensionA60: data.pensionA60,
+      pensionA65: data.pensionA65,
+      gafes: data.gafes,
+
+      // Metadata
+      createdAt: now,
+      downloadedAt: null,
+      pdfGenerated: false,
+      status: 'completed',
+    });
+
+    return { success: true, calculationId };
+  } catch (error) {
+    console.error('Error saving calculation:', error);
+    throw error;
+  }
+}
+
+export async function updateCalculation(
+  calculationId: string,
+  updates: Partial<CalculationRecord>
+) {
+  try {
+    const calculationRef = ref(database, `calculations/${calculationId}`);
+
+    const updateData = {
+      ...updates,
+    };
+
+    await update(calculationRef, updateData);
+
+    return { success: true };
+  } catch (error) {
+    console.error('Error updating calculation:', error);
+    throw error;
   }
 }

@@ -7,10 +7,12 @@ import { v4 as uuidv4 } from 'uuid';
 interface EmailGateModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSuccess: (email: string) => void;
+  onSuccess: (data: any) => void;
   title: string;
   description: string;
   downloadLabel?: string;
+  telefono?: boolean;
+  calculationData?: any;
 }
 
 export default function EmailGateModal({
@@ -20,9 +22,12 @@ export default function EmailGateModal({
   title,
   description,
   downloadLabel = 'Descargar',
+  telefono = false,
+  calculationData,
 }: EmailGateModalProps) {
   const [email, setEmail] = useState('');
   const [nombre, setNombre] = useState('');
+  const [tel, setTel] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
@@ -43,13 +48,18 @@ export default function EmailGateModal({
         throw new Error('Por favor ingresa tu nombre');
       }
 
+      // Validar teléfono si es requerido
+      if (telefono && tel.trim() && !/^\+?[0-9\s\-()]{10,}$/.test(tel.trim())) {
+        throw new Error('Teléfono inválido');
+      }
+
       // Generar token único
       const accessToken = uuidv4();
 
       // Guardar subscriber
       await saveSubscriber({
         nombre,
-        telefono: '', // Opcional por ahora
+        telefono: tel || '',
         correo: email,
         privacyAccepted: true,
         marketingAccepted: true,
@@ -60,12 +70,20 @@ export default function EmailGateModal({
       // await sendConfirmationEmail(email, nombre);
 
       setSuccess(true);
-      onSuccess(email);
+
+      // Pass all data to onSuccess
+      onSuccess({
+        nombre,
+        email,
+        telefono: tel,
+        calculationData,
+      });
 
       // Auto-close después de 2 segundos
       setTimeout(() => {
         setEmail('');
         setNombre('');
+        setTel('');
         setSuccess(false);
         onClose();
       }, 2000);
@@ -159,6 +177,26 @@ export default function EmailGateModal({
                       🔒 Tu email está protegido. Nunca será compartido.
                     </p>
                   </div>
+
+                  {telefono && (
+                    <div>
+                      <label htmlFor="tel" className="block text-sm font-medium text-gray-700 mb-1">
+                        Teléfono WhatsApp <span className="text-gray-500">(opcional)</span>
+                      </label>
+                      <input
+                        id="tel"
+                        type="tel"
+                        value={tel}
+                        onChange={(e) => setTel(e.target.value)}
+                        placeholder="+52 999 200 5550"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        disabled={loading}
+                      />
+                      <p className="text-xs text-gray-500 mt-1">
+                        📱 Solo para contactarte con tus resultados.
+                      </p>
+                    </div>
+                  )}
 
                   {error && (
                     <div className="bg-red-50 border border-red-200 rounded-lg p-3">
