@@ -36,30 +36,30 @@ export function generateCalculationPDF(
 
   // Header
   doc.setFontSize(20);
-  doc.setFont(undefined, 'bold');
+  doc.setFont('Helvetica', 'bold');
   doc.text('Tu Cálculo de Pensión Personalizado', margin, yPosition);
   yPosition += 10;
 
   doc.setFontSize(10);
-  doc.setFont(undefined, 'normal');
+  doc.setFont('Helvetica', 'normal');
   doc.setTextColor(100, 100, 100);
   doc.text(`Generado: ${new Date().toLocaleDateString('es-MX')}`, margin, yPosition);
   yPosition += 5;
 
   // User name
   doc.setTextColor(0, 0, 0);
-  doc.setFont(undefined, 'bold');
+  doc.setFont('Helvetica', 'bold');
   doc.text(`Persona: ${nombreUsuario}`, margin, yPosition);
   yPosition += 10;
 
   // Input Summary Section
   doc.setFontSize(12);
-  doc.setFont(undefined, 'bold');
+  doc.setFont('Helvetica', 'bold');
   doc.text('Datos Ingresados', margin, yPosition);
   yPosition += 6;
 
   doc.setFontSize(10);
-  doc.setFont(undefined, 'normal');
+  doc.setFont('Helvetica', 'normal');
   const inputData = [
     [`Edad actual:`, `${data.edadActual} años`],
     [`Salario diario promedio:`, `$${data.salarioDiario.toLocaleString('es-MX', { maximumFractionDigits: 2 })}`],
@@ -72,9 +72,9 @@ export function generateCalculationPDF(
   ];
 
   inputData.forEach(([label, value]) => {
-    doc.setFont(undefined, 'bold');
+    doc.setFont('Helvetica', 'bold');
     doc.text(label, margin, yPosition);
-    doc.setFont(undefined, 'normal');
+    doc.setFont('Helvetica', 'normal');
     doc.text(value, margin + 70, yPosition);
     yPosition += 5;
   });
@@ -83,12 +83,12 @@ export function generateCalculationPDF(
 
   // Calculation Details Section
   doc.setFontSize(12);
-  doc.setFont(undefined, 'bold');
+  doc.setFont('Helvetica', 'bold');
   doc.text('Detalles del Cálculo', margin, yPosition);
   yPosition += 6;
 
   doc.setFontSize(10);
-  doc.setFont(undefined, 'normal');
+  doc.setFont('Helvetica', 'normal');
   const calcDetails = [
     [`Cuantía Básica:`, `${data.cuantiaBasica.toFixed(2)}%`],
     [`Incremento por semanas extra:`, `${data.incrementoExtra.toFixed(2)}%`],
@@ -97,9 +97,9 @@ export function generateCalculationPDF(
   ];
 
   calcDetails.forEach(([label, value]) => {
-    doc.setFont(undefined, 'bold');
+    doc.setFont('Helvetica', 'bold');
     doc.text(label, margin, yPosition);
-    doc.setFont(undefined, 'normal');
+    doc.setFont('Helvetica', 'normal');
     doc.text(value, margin + 70, yPosition);
     yPosition += 5;
   });
@@ -108,7 +108,7 @@ export function generateCalculationPDF(
 
   // Results Section - Main findings
   doc.setFontSize(12);
-  doc.setFont(undefined, 'bold');
+  doc.setFont('Helvetica', 'bold');
   doc.setTextColor(22, 101, 52); // Green
   doc.text('Resultados', margin, yPosition);
   doc.setTextColor(0, 0, 0);
@@ -120,9 +120,9 @@ export function generateCalculationPDF(
   doc.rect(margin, yPosition - 3, contentWidth, 20, 'F');
 
   doc.setFontSize(10);
-  doc.setFont(undefined, 'bold');
+  doc.setFont('Helvetica', 'bold');
   doc.text('Si solicitas pensión a los 60 años:', margin + 3, yPosition);
-  doc.setFont(undefined, 'normal');
+  doc.setFont('Helvetica', 'normal');
   doc.setFontSize(14);
   doc.text(
     `$${data.pensionA60.toLocaleString('es-MX', { maximumFractionDigits: 0 })}/mes`,
@@ -138,9 +138,9 @@ export function generateCalculationPDF(
   doc.rect(margin, yPosition - 3, contentWidth, 20, 'F');
 
   doc.setFontSize(10);
-  doc.setFont(undefined, 'bold');
+  doc.setFont('Helvetica', 'bold');
   doc.text('Si esperas a los 65 años:', margin + 3, yPosition);
-  doc.setFont(undefined, 'normal');
+  doc.setFont('Helvetica', 'normal');
   doc.setFontSize(14);
   doc.text(
     `$${data.pensionA65.toLocaleString('es-MX', { maximumFractionDigits: 0 })}/mes`,
@@ -154,9 +154,9 @@ export function generateCalculationPDF(
   // Difference
   const difference = data.pensionA65 - data.pensionA60;
   doc.setFontSize(10);
-  doc.setFont(undefined, 'bold');
+  doc.setFont('Helvetica', 'bold');
   doc.text('Diferencia por esperar 5 años:', margin, yPosition);
-  doc.setFont(undefined, 'normal');
+  doc.setFont('Helvetica', 'normal');
   doc.text(
     `$${difference.toLocaleString('es-MX', { maximumFractionDigits: 0 })}/mes`,
     margin + 70,
