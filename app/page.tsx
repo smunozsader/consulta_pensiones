@@ -36,7 +36,7 @@ export default function Home() {
               ¿Cuándo puedo retirarme?
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 font-light">
-              Sabe exactamente cuánto recibirás de pensión y el momento óptimo para jubilarte
+              Conoce exactamente cuánto recibirás de pensión y el momento óptimo para jubilarte
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link
