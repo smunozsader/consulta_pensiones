@@ -133,28 +133,28 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-lg border border-gray-200">
               <p className="text-gray-600 mb-4 italic">
-                "No sabía si podía jubilarse. El análisis le mostró que podía vivir cómodamente desde los 62 años"
+                "No sabía si podía jubilarme. El análisis me mostró que podía vivir cómodamente desde los 62 años."
               </p>
               <p className="font-semibold text-gray-900">Carlos</p>
-              <p className="text-sm text-gray-500">Modalidad 40, mejoró su pensión</p>
+              <p className="text-sm text-gray-500">Empleado que optimizó con Modalidad 40</p>
               <p className="text-2xl font-bold text-green-600 mt-3">+$1,890/mes</p>
             </div>
 
             <div className="bg-white p-8 rounded-lg border border-gray-200">
               <p className="text-gray-600 mb-4 italic">
-                "Como independiente, creía que nunca alcanzaría 500 semanas. Logramos acreditar 100 más"
+                "Como independiente, creía que nunca alcanzaría 500 semanas. Con la documentación correcta, logré acreditar 100 más."
               </p>
               <p className="font-semibold text-gray-900">Laura</p>
-              <p className="text-sm text-gray-500">Acreditación de períodos</p>
+              <p className="text-sm text-gray-500">Profesional independiente que acreditó períodos</p>
               <p className="text-2xl font-bold text-green-600 mt-3">+100 semanas</p>
             </div>
 
             <div className="bg-white p-8 rounded-lg border border-gray-200">
               <p className="text-gray-600 mb-4 italic">
-                "Entendí que trabajar 2 años más significaba $4,000/mes adicionales. Valió la pena"
+                "Entendí que trabajar dos años más significaba $4,000 mensuales adicionales. La estrategia fue clara y decisiva."
               </p>
               <p className="font-semibold text-gray-900">Javier</p>
-              <p className="text-sm text-gray-500">Estrategia de jubilación</p>
+              <p className="text-sm text-gray-500">Agricultor que optimizó su jubilación</p>
               <p className="text-2xl font-bold text-green-600 mt-3">+$4,000/mes</p>
             </div>
           </div>
