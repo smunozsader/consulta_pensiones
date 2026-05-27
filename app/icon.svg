@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Fondo transparente -->
+  <rect width="512" height="512" fill="transparent"/>
+  
+  <!-- Escudo exterior azul -->
+  <path d="M 256 40 L 440 120 C 440 320 350 440 256 480 C 162 440 72 320 72 120 Z" fill="none" stroke="#003b73" stroke-width="40" stroke-linejoin="round"/>
+  
+  <!-- Reloj de arena interior (gris y azul) -->
+  <polygon points="180,160 332,160 256,256" fill="#66727e"/>
+  <polygon points="256,256 180,352 332,352" fill="#003b73"/>
+</svg>
