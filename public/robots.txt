@@ -1,0 +1,42 @@
+# robots.txt for asesor-pensiones.mx
+# Última actualización: Mayo 27, 2026
+
+User-agent: *
+Allow: /
+Allow: /calculadora
+Allow: /blog/
+Allow: /servicios
+Allow: /casos
+Allow: /about
+Allow: /pension/analisis
+Allow: /privacidad
+Allow: /terminos
+
+Disallow: /.next/
+Disallow: /api/
+Disallow: /.vercel/
+Disallow: /node_modules/
+Disallow: /*.json$
+
+# Delay for crawlers (in seconds)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://asesor-pensiones.mx/sitemap.xml
+
+# Google Search Console
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
